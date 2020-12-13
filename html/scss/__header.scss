@@ -1,0 +1,45 @@
+.header {
+  &__breadcrumb {
+    background-color: #efefef;
+    .breadcrumb {
+      &-item {
+        position: relative;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        margin-right: 25px;
+        padding-right: 20px;
+        color: rgb(153, 153, 153);
+        font-size: 13px;
+        font-weight: 300;
+
+        &::before,
+        &:after {
+          content: "";
+          position: absolute;
+          right: 0px;
+          width: 2px;
+          height: 30px;
+          background-color: rgb(225, 225, 225);
+        }
+        &::before {
+          bottom: -6px;
+          transform: rotate(40deg);
+        }
+        &::after {
+          top: -6px;
+          transform: rotate(-40deg);
+        }
+
+        &:last-child{
+          color: rgb(51, 51, 51);
+          &:before,&:after{
+            content: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhà sách Tiki</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="scss/main.css">
+</head>
+
+<body>
+    <header class="header">
+        <table class="w-100">
+            <tr class="p-0">
+                <td class="p-0">
+                    <img class="w-100"
+                        src="https://salt.tikicdn.com/ts/banner/19/c7/b0/1b5f27487cdeaaafba6e077300bcf77a.jpg"
+                        alt="AdvertisementFile">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- HEADER-->
+                    <div class="header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <a href="index.html">
+                                                <i class="tikicon icon-logo mr-3"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-10 d-flex">
+                                            <input type='text' id="txtTenSach"
+                                                class="header__input w-75 d-inline rounded-start"
+                                                placeholder="Nhập tên sách cần tìm" />
+
+                                            <button id="btnTim"
+                                                class="header__search d-flex align-items-center a-hover">
+                                                <div>
+
+                                                    <i class="tikicon icon-search">
+
+                                                    </i>
+                                                    Tìm kiếm
+                                                </div>
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 d-flex">
+                                    <div class="header__user">
+                                        <i class="tikicon icon-tracking"></i>
+                                        <span>Theo dõi<br>
+                                    </div>
+                                    <div class="header__user">
+                                        <i class="tikicon icon-notification"></i>
+                                        <span>Thông báo
+                                            <br>
+                                            của tôi</span>
+                                    </div>
+                                    <button class="header__user text-decoration-none bg-none btn shadow-none p-0 d-flex"
+                                        data-toggle="modal" data-target="#modalDangNhap">
+                                        <i class="tikicon icon-user"></i>
+                                        <span><b>Đăng nhập</b><br>
+                                            Tài khoản</span>
+                                    </button>
+
+                                    <a class="header__user text-decoration-none header__card"
+                                        href='../WebForm/GioHang.aspx'>
+                                        <i class="tikicon icon-card ml-0"></i>
+                                        <span>Giỏ hàng</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- //row-->
+                        </div>
+                        <!-- //container-->
+                    </div>
+                    <!-- //header-->
+                    <!-- //HEADER -->
+                </td>
+            </tr>
+
+        </table>
+
+        <div class="header__breadcrumb">
+            <div class="container py-0 overflow-hidden" style="--bs-breadcrumb-divider: '';">
+                <div class="breadcrumb mb-0">
+                    <a href="#" class="breadcrumb-item">Trang chủ</a>
+                    <a href="#" class="breadcrumb-item">Nhà sách Tiki</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalDangNhap" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="position-absolute" style="top: -10px; right: -10px">
+
+                        <button type="button" class="close"
+                            style="background-color: red; color: white; width: 20px; height: 20px; border-radius: 50%; opacity: 1; display: flex; justify-content: center; align-items: center;"
+                            data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+
+                                <div class="col-4 d-flex align-items-center">
+                                    <img class="w-100" src="./img/adDangNhap.png" alt="">
+                                </div>
+                                <!-- //col-5 -->
+
+                                <div class="col-8">
+                                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active" id="pills-DangNhap-tab" data-toggle="pill"
+                                                href="#pills-DangNhap" role="tab" aria-controls="pills-DangNhap"
+                                                aria-selected="true">Đăng nhập</a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" id="pills-DangKy-tab" data-toggle="pill"
+                                                href="#pills-DangKy" role="tab" aria-controls="pills-DangKy"
+                                                aria-selected="false">Đăng ký</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-DangNhap" role="tabpanel"
+                                            aria-labelledby="pills-DangNhap-tab">
+                                            <div class='labelinput'>
+                                                <label for="Username" class='lblInfo'>Tên đăng nhập</label>
+
+                                                <input type='text' id="txtUserDangNhap" class="form-control form-input"
+                                                    ToolTip="Username" placeholder="Username" />
+                                            </div>
+                                            <div class='labelinput'>
+                                                <label for="Password" class='lblInfo'>Mật khẩu</label>
+
+                                                <input type='text' id="txtPasswordDangNhap" placeholder="Password"
+                                                    class="form-control form-input" ToolTip="Password"
+                                                    TextMode="Password" />
+
+                                            </div>
+                                            <span class='my-2'>Quên mật khẩu? Nhấn vào <a href="">đây</a>.</span>
+                                            <div class="form-button mt-3">
+                                                <asp:Button id="btnDangNhap2"
+                                                    class="btn-custom btn btn-warning btn-block text-dark"
+                                                    Text="Đăng nhập" ToolTip="Log in" />
+                                                <button class="btn-custom btn btn-success btn-block">
+                                                    Đăng nhập bằng Số điện thoại</button>
+                                                <button class="btn-custom btn btn-facebook btn-block">
+                                                    <span class="border-right-custom">
+                                                        <i class="tikicon icon-facebook"></i>
+                                                    </span>
+                                                    Đăng nhập bằng Facebook</button>
+                                                <button class="btn-custom btn btn-google btn-block">
+                                                    <span class="border-right-custom">
+                                                        <i class="tikicon icon-google"></i>
+                                                    </span>
+                                                    Đăng nhập bằng Google
+                                                </button>
+                                                <button class="btn-custom btn btn-zalo btn-block">
+                                                    <span class="border-right-custom">
+                                                        <i class="tikicon icon-zalo"></i>
+                                                    </span>
+                                                    Đăng nhập bằng Zalo
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="pills-DangKy" role="tabpanel"
+                                            aria-labelledby="pills-DangKy-tab">
+
+                                            <form class="needs-validation" novalidate>
+
+                                                <div class='labelinput'>
+                                                    <label for="hoTen" class='lblInfo'>Họ tên</label>
+                                                    <input type='text' id="txtHoTen" placeholder="Nhập họ tên"
+                                                        class="form-control form-input" ToolTip="Nhập họ tên" />
+                                                </div>
+
+                                                <div class='labelinput'>
+                                                    <label for="txtUser" class='lblInfo'>Tên đăng nhập</label>
+
+                                                    <input type='text' id="txtUser" class="form-control form-input"
+                                                        ToolTip="Nhập tên đăng nhập" placeholder="Nhập tên đăng nhập" />
+
+                                                </div>
+
+                                                <div class='labelinput'>
+                                                    <label for="txtPass" class='lblInfo'>Mật khẩu</label>
+
+                                                    <input type='text' id="txtPass" TextMode="Password"
+                                                        class="form-control form-input" ToolTip="Nhập mật khẩu"
+                                                        placeholder="Nhập mật khẩu từ 6 đến 32 ký tự" />
+
+                                                </div>
+
+                                                <div class='labelinput'>
+                                                    <label for="txtPass" class='lblInfo'>Địa chỉ</label>
+
+                                                    <input type='text' id="txtDiaChi" class="form-control form-input"
+                                                        ToolTip="Nhập địa chỉ" placeholder="Address" />
+
+                                                </div>
+                                                <div class='labelinput'>
+                                                    <label for="dienThoai" class='lblInfo'>SĐT</label>
+                                                    <input type='text' id="txtDienThoai" class="form-control form-input"
+                                                        ToolTip="Nhập số điện thoại" placeholder="Nhập số điện thoại" />
+                                                </div>
+                                                <div class='labelinput'>
+                                                    <label for="email" class='lblInfo'>Email</label>
+
+                                                    <input type='text' id="txtEmail" class="form-control form-input"
+                                                        ToolTip="Nhập email" placeholder="Nhập email" />
+                                                </div>
+
+                                                <div class='labelinput'>
+                                                    <label for="gioiTinh" class='lblInfo'>Giới tính</label>
+                                                    <div class="form-input">
+                                                        <div class="form-check form-check-inline">
+                                                            <input type='radio' id="rdbtnNam"
+                                                                class="form-check-input" />
+                                                            <label class="form-check-label" for="rdbtnNam">Nam</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type='radio' id="rdbtnNu" class="form-check-input" />
+                                                            <label class="form-check-label" for="rdbtnNu">Nữ</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class='labelinput d-flex'>
+                                                    <label for="ngaySinh" style="width: 37%" class='lblInfo'>Ngày
+                                                        sinh</label>
+                                                    <div class="form-row">
+                                                        <div class="col">
+
+                                                            <input type='text' id="txtNgay"
+                                                                class="form-control form-input" ToolTip="Nhập ngày sinh"
+                                                                placeholder="Ngày" />
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type='text' id="txtThang"
+                                                                class="form-control form-input" ToolTip="Nhập tháng"
+                                                                placeholder="Tháng" />
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type='text' id="txtNam"
+                                                                class="form-control form-input" ToolTip="Nhập năm"
+                                                                placeholder="Năm" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-button mt-3">
+                                                    <asp:Button id="btnDangKy"
+                                                        class="btn btn-warning btn-block text-dark" Text="Đăng ký" />
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //col-7 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //modal-->
+    </header>
+
+    <div class="container">
+        <div class="book">
+            <div class="book__left col-4">
+                <img src="https://salt.tikicdn.com/cache/w444/ts/product/15/11/f8/56b303e000cb42faada663569fc5d7c9.jpg"
+                    alt="Tên sản phẩm">
+
+            </div>
+            <!-- /.book__left col-4 -->
+
+            <div class="book_right col-8">
+                <div class="book__header">
+                    <div class="brand"><span class="brand-and-author ">
+                            <h6>Tác giả:<a href="/author/david-a-phillips.html">David A. Phillips</a></h6>
+                        </span>
+                        <div class="bestseller">
+                            <p><span>Đứng thứ 1 trong </span> <a href="/bestsellers-month/sach-ky-nang-song/c871">Top
+                                    1000
+                                    Sách tư duy - Kỹ năng sống bán chạy tháng này
+                                </a></p>
+                        </div>
+                        <div class="like_share">
+                            <div class="icon-wrap"><img
+                                    src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-like.svg">
+                            </div>
+                            <div class="icon-wrap shareFB"><img
+                                    src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-account-social.svg">
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="title" itemprop="name">
+                        <div class="icon-inline-with-title"><a href="#"><img
+                                    src="https://salt.tikicdn.com/ts/upload/e9/68/49/50ac83c9f95bd008cc840e638f0f5791.png"
+                                    alt="tikinow"></a></div>Thay Đổi Cuộc Sống Với Nhân Số Học
+                    </h1>
+                    <div itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+                        <meta itemprop="ratingValue" content="5">
+                        <meta itemprop="ratingCount" content="604">
+                        <meta itemprop="bestRating" content="5">
+                        <meta itemprop="worstRating" content="1">
+                    </div>
+                    <div class="indexstyle__Review-qd1z2k-4 iZkBwo">
+                        <p style="font-size:16px" class="Stars__Wrapper-sc-1t6kjxa-0 iQZcjJ"><i
+                                class="icomoon icomoon-star"></i><i class="icomoon icomoon-star"></i><i
+                                class="icomoon icomoon-star"></i><i class="icomoon icomoon-star"></i><i
+                                class="icomoon icomoon-star"></i></p><a class="number">(Xem 604 đánh giá)</a>
+                    </div>
+
+                </div>
+                <!-- /.book__header -->
+                <div class="container-fluid">
+                    <div class="book__price col-8">
+
+                    </div>
+                    <!-- /.book__price col-8 -->
+                    <div class="book__commitment col-4">
+
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.book_right -->
+
+        </div>
+        <!-- /.book -->
+
+        <div class="similar">
+
+        </div>
+        <!-- /.similar -->
+
+        <div class="detail">
+
+        </div>
+        <!-- /.detail -->
+        <div class="describe">
+
+        </div>
+        <!-- /.describe -->
+
+        <div class="evaluate">
+            <div class="evaluate__general">
+
+            </div>
+            <!-- /.evaluate__general -->
+
+            <div class="evaluate__imgs">
+
+            </div>
+            <!-- /.evaluate__imgs -->
+
+            <div class="evaluate__filter">
+
+            </div>
+            <!-- /.evaluate__filter -->
+
+            <div class="evaluate__item">
+
+            </div>
+            <!-- /.evaluate__item -->
+        </div>
+        <!-- /.evaluate -->
+
+    </div>
+    <!-- /.container -->
+    <footer class="footer">
+
+    </footer>
+    <!-- /.footer -->
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
