@@ -2,20 +2,23 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Chrome",
+      "label": "Edge",
       "type": "shell",
       "command": "msbuild",
       "args": [
         "${file}"
       ],
-      "group": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
       "presentation": {
         "reveal": "silent"
       },
       "windows": {
         "command": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
       },
-      "problemMatcher": [] // không hiện báo lỗi
+      "problemMatcher": []
     }
   ]
 }
