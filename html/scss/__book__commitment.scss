@@ -1,0 +1,68 @@
+.book__commitment {
+  width: 240px;
+  margin-left: 15px;
+  .book__commitment__top {
+    border-radius: 4px;
+    box-shadow: rgb(242, 242, 242) 1px 1px 0px 0px inset,
+      rgb(242, 242, 242) -1px -1px 0px 0px inset;
+  }
+
+  .seller-info {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 12px;
+  }
+
+  .seller-description {
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: normal;
+    color: rgb(36, 36, 36);
+  }
+
+  img.icon-store {
+    width: 44px;
+    border-radius: 50%;
+    margin-right: 12px;
+    height: 44px;
+    object-fit: contain;
+  }
+
+  a.seller-name {
+    font-size: 15px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: normal;
+    color: rgb(36, 36, 36);
+  }
+
+  span.view-more {
+    font-size: 13px;
+    color: rgb(13, 92, 182);
+  }
+
+  &__benifit {
+    display: flex;
+    padding: 8px;
+    border-top: 1px solid rgb(242, 242, 242);
+  }
+  .benefit-item {
+    display: flex;
+    background: white;
+    flex-direction: column;
+    flex: 1 0 30%;
+    img {
+      display: block;
+      height: 20px;
+      margin: auto;
+    }
+    span {
+      text-align: center;
+      font-size: 13px;
+      line-height: 20px;
+      margin-top: 8px;
+    }
+  }
+}
