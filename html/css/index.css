@@ -304,10 +304,12 @@ html {
   border-radius: 50%;
   background-color: rgb(255, 255, 255);
   box-shadow: rgb(150, 150, 150) -1px 1px 1px;
+  z-index: 3;
 }
 .ico-close {
   background-image: url(../img/sprite.png);
   background-position: -304px -29px;
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
