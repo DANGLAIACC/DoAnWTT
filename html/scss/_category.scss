@@ -80,7 +80,7 @@
   }
   &__content {
     display: inline-block;
-    width: 985px;
+    width: calc(100% - 257px);
     vertical-align: top;
   }
   // &_carousel {

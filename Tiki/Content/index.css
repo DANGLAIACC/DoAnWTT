@@ -1,0 +1,315 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  max-width: 1280px;
+}
+html {
+  background-color: rgb(244, 244, 244);
+}
+.a-hover:hover {
+  text-decoration: none;
+  color: inherit;
+}
+.tikicon2 {
+  background-image: url(../img/sprite2.png);
+  display: inline-block;
+}
+
+.tikicon {
+  background-image: url(../img/sprite.png);
+  display: inline-block;
+}
+
+.btn.shadow-none:focus {
+  box-shadow: none;
+}
+
+.icon-logo {
+  background-position: -148px 0px;
+  width: 50px;
+  height: 33px;
+}
+
+.icon-search {
+  background-position: -152px -180px;
+  width: 14px;
+  height: 15px;
+}
+
+.icon-burger-menu {
+  background-position: -427px -331px;
+  width: 20px;
+  height: 16px;
+}
+
+.icon-tracking {
+  background-position: -362px -52px;
+  width: 22px;
+  height: 22px;
+}
+
+.icon-notification {
+  background-position: -304px -174px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-user {
+  background-position: -362px -25px;
+  width: 22px;
+  height: 22px;
+}
+
+.icon-card {
+  background-position: -333px -252px;
+  width: 19px;
+  height: 18px;
+}
+
+.icon-fb {
+  background-position: -349px -209px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon-youtube {
+  background-position: -349px -172px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon-zalo {
+  background-position: -349px -135px;
+  width: 32px;
+  height: 32px;
+}
+
+.header {
+  background-color: #189eff;
+}
+
+.header .container {
+  padding: 20px 0 16px;
+  position: relative;
+}
+
+.header__input {
+  border: 0px none;
+  padding: 0px 8px;
+  font-size: 13px;
+  outline: none;
+  border-radius: 4px 0px 0px 4px;
+  height: 40px;
+}
+
+.header__input:focus {
+  border: 0 none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.header__input::-webkit-input-placeholder {
+  color: #c7c7c7;
+  font-size: 13px;
+}
+
+.header__input:-ms-input-placeholder {
+  color: #c7c7c7;
+  font-size: 13px;
+}
+
+.header__inputo:-ms-input-placeholder {
+  color: #c7c7c7;
+  font-size: 13px;
+}
+
+.header__input:placeholder {
+  color: #c7c7c7;
+  font-size: 13px;
+}
+
+.header__search {
+  cursor: pointer;
+  border: 0px none;
+  padding: 0px 11px 0px 15px;
+  background: #edeef2 none repeat scroll 0% 0%;
+  height: 40px;
+  border-radius: 0px 4px 4px 0px;
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.header__user {
+  cursor: pointer;
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.header__user i {
+  margin-right: 12px;
+}
+
+.header__user span {
+  color: white;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.9px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.header__card {
+  border: 2px solid #fff;
+  padding: 8px 11px;
+  border-radius: 4px;
+  letter-spacing: 0.7px;
+  font-weight: 400;
+  font-size: 13px;
+  vertical-align: middle;
+}
+.modal__btn-close {
+  right: -12px;
+  top: -15px;
+}
+.modal__btn-close .close {
+  color: white;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.btn .icon-zalo {
+  background-position: -240px -72px;
+  width: 25px;
+  height: 25px;
+}
+
+.btn .icon-google {
+  background-position: -26px -288px;
+  width: 24px;
+  height: 24px;
+}
+
+.btn .icon-facebook {
+  background-position: -290px -288px;
+  width: 24px;
+  height: 24px;
+}
+
+.btn .border-right-custom {
+  float: left;
+  height: 25px;
+  width: 36px;
+}
+
+.btn-facebook {
+  background-color: #3b5998 !important;
+}
+
+.btn-google {
+  background-color: #df4a32 !important;
+}
+
+.btn-zalo {
+  background-color: #0f8edd !important;
+}
+
+.modal {
+  font-size: 13px;
+}
+
+.modal .tab-content .labelinput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.modal .tab-content .labelinput .lblInfo {
+  margin-bottom: 0;
+}
+
+.modal .tab-content .labelinput .form-input {
+  width: 80%;
+  display: inline-block;
+}
+
+.modal .tab-content .labelinput .form-input::-webkit-input-placeholder {
+  color: #a6a6a6;
+  font-size: 13px;
+}
+
+.modal .tab-content .labelinput .form-input:-ms-input-placeholder {
+  color: #a6a6a6;
+  font-size: 13px;
+}
+
+.modal .tab-content .labelinput .form-input::-ms-input-placeholder {
+  color: #a6a6a6;
+  font-size: 13px;
+}
+
+.modal .tab-content .labelinput .form-input::placeholder {
+  color: #a6a6a6;
+  font-size: 13px;
+}
+.modal .tab-content .labelinput .form-input {
+  font-size: 14px;
+}
+
+.modal .tab-content .form-button {
+  display: block;
+  width: 80%;
+  margin-left: auto;
+}
+
+.modal .tab-content .form-button .btn {
+  font-size: 14px;
+  /* border-right: 1px solid rgba(0, 0, 0, 0.2); */
+  color: white;
+}
+
+/* new */
+#modalDangNhap .btn {
+  width: 100%;
+  margin: 12px 0;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+}
+#modalDangNhap .btn i {
+  padding-right: 30px;
+  margin-right: 15px;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  margin-left: 7px;
+}
+#modalDangNhap .close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(150, 150, 150) -1px 1px 1px;
+  z-index: 3;
+}
+.ico-close {
+  background-image: url(../img/sprite.png);
+  background-position: -304px -29px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}

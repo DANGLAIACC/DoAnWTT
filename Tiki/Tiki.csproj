@@ -136,12 +136,19 @@
     <Content Include="Areas\Admin\img\undraw_profile_3.svg" />
     <Content Include="Areas\Admin\img\undraw_rocket.svg" />
     <Content Include="Content\Admin\_Layout.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\index.css" />
+    <Content Include="Content\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\icomoon.svg" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="img\adDangNhap.png" />
+    <Content Include="img\sprite.png" />
+    <Content Include="img\sprite2.png" />
     <Content Include="Scripts\Admin\chart-area-demo.js" />
     <Content Include="Scripts\Admin\chart-pie-demo.js" />
     <Content Include="Scripts\Admin\Chart.min.js" />
@@ -174,7 +181,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\icomoon.ttf" />
+    <Content Include="fonts\icomoon.woff" />
     <None Include="packages.config" />
+    <Content Include="Views\Home\Detail.cshtml" />
+    <Content Include="Views\Home\Cart.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -622,7 +622,8 @@ body {
 }
 
 .evaluate__middle .btn-evaluate {
-  font: 14px/18px Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  font: 14px/18px Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+ Freesans, sans-serif;
   outline: none !important;
   width: 200px;
   height: 38px;
@@ -1200,5 +1201,4 @@ body {
 
 .cart-total .cart__submit:hover {
   background: #ff0f1e;
-}
-/*# sourceMappingURL=main.css.map */
+} 
