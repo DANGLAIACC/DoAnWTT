@@ -1,0 +1,107 @@
+.category {
+  margin-top: 10px;
+  .sidebar {
+    background: rgb(255, 255, 255);
+    width: 253px;
+    border-radius: 4px 0px 0px 4px;
+    overflow: hidden;
+    display: inline-block;
+    padding: 0;
+
+    .block {
+      padding: 0px 20px 15px;
+      &:nth-child(n + 2) {
+        border-top: 1px solid rgb(247, 247, 247);
+      }
+      .title {
+        margin: 0px;
+        line-height: 20px;
+        display: block;
+        color: rgb(36, 36, 36);
+        font-size: 14px;
+        padding: 18px 0px 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      .item {
+        font-size: 13px;
+        color: rgb(36, 36, 36);
+        padding: 5px 0px;
+        line-height: 15px;
+        display: block;
+      }
+
+      .stars {
+        color: rgb(255, 193, 32);
+        margin-bottom: 5px;
+        display: inline-block;
+        font-size: 15px;
+      }
+
+      .price-small-text {
+        color: rgb(133, 133, 133);
+        font-size: 13px;
+        padding-bottom: 5px;
+      }
+      .input-group input {
+        width: 95px;
+        height: 30px;
+        padding: 0px 8px;
+        background: rgb(255, 255, 255);
+        border-radius: 4px !important;
+        text-align: left;
+        border: 1px solid rgb(184, 184, 184);
+        outline: none;
+        font-size: 13px;
+      }
+      button {
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(24, 158, 255);
+        font-size: 12px;
+        color: rgb(24, 158, 255);
+        padding: 5px 15px;
+        width: 99px;
+        margin-top: 8px;
+        border-radius: 4px;
+      }
+
+      .toggler {
+        font-size: 13px;
+        font-weight: 500;
+        text-align: center;
+        display: flex;
+        line-height: 25px;
+        align-items: center;
+        justify-content: center;
+        color: rgb(36, 36, 36);
+      }
+    }
+  }
+  &__content {
+    display: inline-block;
+    width: 985px;
+    vertical-align: top;
+  }
+  // &_carousel {
+  // } // carousel
+
+  &__product__list {
+    h1 {
+      display: inline;
+      font-weight: 600;
+      font-size: 28px;
+    }
+    &__row {
+      display: flex;
+      margin-top: 12px;
+      & img {
+        width: 100%;
+      }
+    }
+  } // product__list
+
+  .similar__item{
+    width: 24.6%;
+  }
+}
