@@ -65,7 +65,7 @@
                                             của tôi</span>
                                     </div>
                                     <button class="header__user text-decoration-none bg-none btn shadow-none p-0 d-flex"
-                                        data-toggle="modal" data-target="#modalDangNhap">
+                                        data-bs-toggle="modal" data-bs-target="#modalDangNhap">
                                         <i class="tikicon icon-user"></i>
                                         <span><b>Đăng nhập</b><br>
                                             Tài khoản</span>
@@ -102,13 +102,8 @@
         <div class="modal fade" id="modalDangNhap" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                    <div class="position-absolute" style="top: -10px; right: -10px">
-
-                        <button type="button" class="close"
-                            style="background-color: red; color: white; width: 20px; height: 20px; border-radius: 50%; opacity: 1; display: flex; justify-content: center; align-items: center;"
-                            data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                    <div class="close" data-bs-dismiss="modal" aria-label="Close" >
+                            <i class="tikicon ico-close"></i>
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
@@ -122,12 +117,12 @@
                                 <div class="col-8">
                                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                         <li class="nav-item" role="presentation">
-                                            <a class="nav-link active" id="pills-DangNhap-tab" data-toggle="pill"
+                                            <a class="nav-link active" id="pills-DangNhap-tab" data-bs-toggle="pill"
                                                 href="#pills-DangNhap" role="tab" aria-controls="pills-DangNhap"
                                                 aria-selected="true">Đăng nhập</a>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <a class="nav-link" id="pills-DangKy-tab" data-toggle="pill"
+                                            <a class="nav-link" id="pills-DangKy-tab" data-bs-toggle="pill"
                                                 href="#pills-DangKy" role="tab" aria-controls="pills-DangKy"
                                                 aria-selected="false">Đăng ký</a>
                                         </li>
@@ -151,26 +146,19 @@
                                             </div>
                                             <span class='my-2'>Quên mật khẩu? Nhấn vào <a href="">đây</a>.</span>
                                             <div class="form-button mt-3">
-                                                <asp:Button id="btnDangNhap2"
-                                                    class="btn-custom btn btn-warning btn-block text-dark"
-                                                    Text="Đăng nhập" ToolTip="Log in" />
-                                                <button class="btn-custom btn btn-success btn-block">
+                                                <button id="btnDangNhap2" class="btn btn-warning text-dark justify-content-center"
+                                                    ToolTip="Log in">Đăng nhập</button>
+                                                <button class="btn btn-success justify-content-center">
                                                     Đăng nhập bằng Số điện thoại</button>
-                                                <button class="btn-custom btn btn-facebook btn-block">
-                                                    <span class="border-right-custom">
-                                                        <i class="tikicon icon-facebook"></i>
-                                                    </span>
+                                                <button class="btn btn-facebook">
+                                                    <i class="tikicon icon-facebook"></i>
                                                     Đăng nhập bằng Facebook</button>
-                                                <button class="btn-custom btn btn-google btn-block">
-                                                    <span class="border-right-custom">
-                                                        <i class="tikicon icon-google"></i>
-                                                    </span>
+                                                <button class="btn btn-google">
+                                                    <i class="tikicon icon-google"></i>
                                                     Đăng nhập bằng Google
                                                 </button>
-                                                <button class="btn-custom btn btn-zalo btn-block">
-                                                    <span class="border-right-custom">
-                                                        <i class="tikicon icon-zalo"></i>
-                                                    </span>
+                                                <button class="btn btn-zalo">
+                                                    <i class="tikicon icon-zalo"></i>
                                                     Đăng nhập bằng Zalo
                                                 </button>
                                             </div>
@@ -226,41 +214,19 @@
                                                     <label for="gioiTinh" class='lblInfo'>Giới tính</label>
                                                     <div class="form-input">
                                                         <div class="form-check form-check-inline">
-                                                            <input type='radio' id="rdbtnNam"
+                                                            <input type='radio' name='gender' id='male'
                                                                 class="form-check-input" />
-                                                            <label class="form-check-label" for="rdbtnNam">Nam</label>
+                                                            <label class="form-check-label" for="male">Nam</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input type='radio' id="rdbtnNu" class="form-check-input" />
-                                                            <label class="form-check-label" for="rdbtnNu">Nữ</label>
+                                                            <input type='radio' id='female' name='gender' class="form-check-input" />
+                                                            <label class="form-check-label" for="female">Nữ</label>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class='labelinput d-flex'>
-                                                    <label for="ngaySinh" style="width: 37%" class='lblInfo'>Ngày
-                                                        sinh</label>
-                                                    <div class="form-row">
-                                                        <div class="col">
-
-                                                            <input type='text' id="txtNgay"
-                                                                class="form-control form-input" ToolTip="Nhập ngày sinh"
-                                                                placeholder="Ngày" />
-                                                        </div>
-                                                        <div class="col">
-                                                            <input type='text' id="txtThang"
-                                                                class="form-control form-input" ToolTip="Nhập tháng"
-                                                                placeholder="Tháng" />
-                                                        </div>
-                                                        <div class="col">
-                                                            <input type='text' id="txtNam"
-                                                                class="form-control form-input" ToolTip="Nhập năm"
-                                                                placeholder="Năm" />
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </div> 
                                                 <div class="form-button mt-3">
-                                                    <asp:Button id="btnDangKy"
-                                                        class="btn btn-warning btn-block text-dark" Text="Đăng ký" />
+                                                    <button id="btnDangKy" class="btn btn-warning text-dark justify-content-center"
+                                                    >Đăng ký</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -792,19 +758,31 @@
                 <p class="evaluate__title">
                     Tất cả hình ảnh
                 </p>
-                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/84/2e/73/598b19edfc86eb445438b9f347aeb026.jpg" alt="">
-                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/50/31/4b/d517bede696f1b4abc2d7836bc25fa53.jpg" alt="">
-                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/84/2e/73/598b19edfc86eb445438b9f347aeb026.jpg" alt="">
-                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/50/31/4b/d517bede696f1b4abc2d7836bc25fa53.jpg" alt="">
-                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/84/2e/73/598b19edfc86eb445438b9f347aeb026.jpg" alt="">
-                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/50/31/4b/d517bede696f1b4abc2d7836bc25fa53.jpg" alt="">
-                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/84/2e/73/598b19edfc86eb445438b9f347aeb026.jpg" alt="">
-                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/50/31/4b/d517bede696f1b4abc2d7836bc25fa53.jpg" alt="">
-                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/84/2e/73/598b19edfc86eb445438b9f347aeb026.jpg" alt="">
-                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/50/31/4b/d517bede696f1b4abc2d7836bc25fa53.jpg" alt="">
-                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/84/2e/73/598b19edfc86eb445438b9f347aeb026.jpg" alt="">
-                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/50/31/4b/d517bede696f1b4abc2d7836bc25fa53.jpg" alt="">
-                <hr/>
+                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/84/2e/73/598b19edfc86eb445438b9f347aeb026.jpg"
+                    alt="">
+                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/50/31/4b/d517bede696f1b4abc2d7836bc25fa53.jpg"
+                    alt="">
+                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/84/2e/73/598b19edfc86eb445438b9f347aeb026.jpg"
+                    alt="">
+                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/50/31/4b/d517bede696f1b4abc2d7836bc25fa53.jpg"
+                    alt="">
+                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/84/2e/73/598b19edfc86eb445438b9f347aeb026.jpg"
+                    alt="">
+                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/50/31/4b/d517bede696f1b4abc2d7836bc25fa53.jpg"
+                    alt="">
+                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/84/2e/73/598b19edfc86eb445438b9f347aeb026.jpg"
+                    alt="">
+                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/50/31/4b/d517bede696f1b4abc2d7836bc25fa53.jpg"
+                    alt="">
+                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/84/2e/73/598b19edfc86eb445438b9f347aeb026.jpg"
+                    alt="">
+                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/50/31/4b/d517bede696f1b4abc2d7836bc25fa53.jpg"
+                    alt="">
+                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/84/2e/73/598b19edfc86eb445438b9f347aeb026.jpg"
+                    alt="">
+                <img src="https://vcdn.tikicdn.com/cache/w94/ts/review/50/31/4b/d517bede696f1b4abc2d7836bc25fa53.jpg"
+                    alt="">
+                <hr />
 
             </div>
             <!-- /.evaluate__imgs -->

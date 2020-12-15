@@ -191,7 +191,7 @@ html {
 }
 
 .btn .icon-google {
-  background-position: -29px -288px;
+  background-position: -26px -288px;
   width: 24px;
   height: 24px;
 }
@@ -209,15 +209,15 @@ html {
 }
 
 .btn-facebook {
-  background-color: #3b5998;
+  background-color: #3b5998 !important;
 }
 
 .btn-google {
-  background-color: #df4a32;
+  background-color: #df4a32 !important;
 }
 
 .btn-zalo {
-  background-color: #0f8edd;
+  background-color: #0f8edd !important;
 }
 
 .modal {
@@ -278,11 +278,38 @@ html {
 
 .modal .tab-content .form-button .btn {
   font-size: 14px;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  /* border-right: 1px solid rgba(0, 0, 0, 0.2); */
   color: white;
 }
 
-.btn-custom {
+/* new */
+#modalDangNhap .btn {
+  width: 100%;
   margin: 12px 0;
   padding: 8px 0;
+  display: flex;
+  align-items: center;
+}
+#modalDangNhap .btn i {
+  padding-right: 30px;
+  margin-right: 15px;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  margin-left: 7px;
+}
+#modalDangNhap .close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(150, 150, 150) -1px 1px 1px;
+}
+.ico-close {
+  background-image: url(../img/sprite.png);
+  background-position: -304px -29px;
+  width: 24px;
+  height: 24px;
 }
