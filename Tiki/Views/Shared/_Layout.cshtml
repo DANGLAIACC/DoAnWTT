@@ -54,7 +54,7 @@
                                 <div class="col-6 d-flex">
                                     <div class="header__user">
                                         <i class="tikicon icon-tracking"></i>
-                                        <span>Theo dõi<br>
+                                        <span>Theo dõi</span>
                                     </div>
                                     <div class="header__user">
                                         <i class="tikicon icon-notification"></i>
@@ -250,7 +250,7 @@
     </header>
 
     <div class="container">
-        @RenderBody() 
+        @RenderBody()
     </div>
 
     <footer class="footer">
@@ -258,8 +258,7 @@
     </footer>
     <!-- /.footer -->
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/bootstrap.bundle.min.js" language="javascript" type="text/javascript"></script>
+
 </body>
 </html>

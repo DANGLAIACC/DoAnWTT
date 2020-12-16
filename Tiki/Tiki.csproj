@@ -135,8 +135,12 @@
     <Content Include="Areas\Admin\img\undraw_profile_2.svg" />
     <Content Include="Areas\Admin\img\undraw_profile_3.svg" />
     <Content Include="Areas\Admin\img\undraw_rocket.svg" />
+    <Content Include="Content\Admin\svg.css" />
+    <Content Include="Content\Admin\chart.css" />
+    <Content Include="Content\Admin\portal.css" />
     <Content Include="Content\Admin\_Layout.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.all.min.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\main.css" />
     <Content Include="favicon.ico" />
@@ -147,15 +151,36 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="img\adDangNhap.png" />
+    <Content Include="img\Admin\app-logo.svg" />
+    <Content Include="img\Admin\background\background-1.jpg" />
+    <Content Include="img\Admin\background\background-2.jpg" />
+    <Content Include="img\Admin\background\background-3.jpg" />
+    <Content Include="img\Admin\doc-thumb-1.jpg" />
+    <Content Include="img\Admin\doc-thumb-2.jpg" />
+    <Content Include="img\Admin\portal-logo.svg" />
+    <Content Include="img\Admin\profiles\profile-1.png" />
+    <Content Include="img\Admin\profiles\profile-2.png" />
+    <Content Include="img\Admin\profiles\profile-3.png" />
+    <Content Include="img\Admin\profiles\profile-4.png" />
+    <Content Include="img\Admin\profiles\profile-5.png" />
+    <Content Include="img\Admin\profiles\profile-6.png" />
+    <Content Include="img\Admin\user.png" />
+    <Content Include="img\Admin\users\user-1.jpg" />
+    <Content Include="img\Admin\users\user-2.jpg" />
+    <Content Include="img\Admin\users\user-3.jpg" />
+    <Content Include="img\Admin\users\user-4.jpg" />
+    <Content Include="img\Admin\users\user-5.jpg" />
+    <Content Include="img\Admin\users\user-6.jpg" />
+    <Content Include="img\Admin\users\user-7.jpg" />
+    <Content Include="img\Admin\users\user-8.jpg" />
+    <Content Include="img\Admin\users\user-9.jpg" />
     <Content Include="img\sprite.png" />
     <Content Include="img\sprite2.png" />
-    <Content Include="Scripts\Admin\chart-area-demo.js" />
-    <Content Include="Scripts\Admin\chart-pie-demo.js" />
-    <Content Include="Scripts\Admin\Chart.min.js" />
-    <Content Include="Scripts\Admin\_Layout.js" />
+    <Content Include="Scripts\Admin\app.js" />
+    <Content Include="Scripts\Admin\chart.min.js" />
+    <Content Include="Scripts\Admin\font-awesome.all.min.js" />
+    <Content Include="Scripts\Admin\index-charts.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\jquery.easing.min.js" />
-    <Content Include="Scripts\jquery.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -183,6 +208,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
+    <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
@@ -227,4 +253,11 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
 </Project>

@@ -893,7 +893,7 @@ body {
 
 .category__content {
   display: inline-block;
-  width: calc(100% - 257px);
+  width: calc(100% - 260px);
   vertical-align: top;
 }
 
