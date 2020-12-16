@@ -112,11 +112,17 @@ function getbook() {
     "#__next > div:nth-child(1) > main > div:nth-child(8) > div > div.left > div:nth-child(2) > div > table > tbody > tr:last-child > td:nth-child(2)"
   ).innerText;
 
-  var aut_name = document.querySelector(
+  var aut_obj = document.querySelector(
     "#__next > div:nth-child(1) > main > div:nth-child(4) > div > div.indexstyle__ProductContent-qd1z2k-3.hPysQm > div.header > div.brand > span > h6 > a"
-  ).innerText;
+  );
+  var aut_name = "";
+  if (aut_obj == null) {
+    console.warn("Chưa xác định được tác giả");
+  } else {
+    aut_name = aut_obj.innerText;
+  }
 
-  var strEnd = `exec spInsertBook @book_name = N'${book_name}', @book_img = '${book_img}', @book_price = ${book_price}, @book_sale = ${book_sale}, @public_date = '${public_date}', @width = ${width}, @height = ${height}, @page_number = ${page_number}, @cover_type = N'${cover_type}', @article = N'${article}', @translator = N'${translator}', @aut_name = N'${aut_name}', @com_name = N'${com_name}', @pub_name = N'${pub_name}', @cat_name = N'${cat_name}', @shop_name = N'${shop_name}';`;
+  var strEnd = `exec spInsertBook @book_name = N'${book_name}', @cat_name = N'${cat_name}', @aut_name = N'${aut_name}', @page_number = ${page_number}, @book_img = '${book_img}', @book_price = ${book_price}, @book_sale = ${book_sale}, @public_date = '${public_date}', @width = ${width}, @height = ${height}, @cover_type = N'${cover_type}', @article = N'${article}', @translator = N'${translator}', @com_name = N'${com_name}', @pub_name = N'${pub_name}', @shop_name = N'${shop_name}';`;
 
   return strEnd;
 }
@@ -230,11 +236,13 @@ function getevaluate() {
       -1
     )}'),`;
   }
-  var strEnd = "insert into evaluate values " + results.slice(0, -1)+';';
+  var strEnd = "insert into evaluate values " + results.slice(0, -1) + ";";
   setBookId(+bookId + 1);
   console.warn("book id new: " + localStorage.getItem("bookId"));
 
   copyToClipboard(strEnd);
+
+  return strEnd;
 }
 /*
 ttps://salt.tikicdn.com/cache/280x280/ts/product/c5/ae/c1/4c7861d860c406517a745d91b56db9b5.jpg

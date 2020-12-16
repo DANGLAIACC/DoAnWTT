@@ -9,17 +9,17 @@ USE TIKI
 GO
 CREATE TABLE COMPANY(
   com_id int identity primary key,
-  com_name nvarchar(50) not null,
+  com_name nvarchar(100) not null,
 )
 GO
 CREATE TABLE PUBLISHER(
   pub_id int identity primary key,
-  pub_name nvarchar(50) not null
+  pub_name nvarchar(100) not null
 )
 GO
 CREATE TABLE CATEGORY(
   cat_id int identity primary key,
-  cat_name nvarchar(50) not null
+  cat_name nvarchar(100) not null
 )
 GO
 CREATE TABLE AUTHOR(
@@ -52,6 +52,7 @@ CREATE TABLE BOOK(
   com_id int foreign key references COMPANY(com_id),
   pub_id int foreign key references PUBLISHER(pub_id),
   cat_id int foreign key references CATEGORY(cat_id),
+  shop_id int foreign key references SHOP(shop_id)
 )
 GO
 CREATE TABLE CUSTOMER(
@@ -99,7 +100,7 @@ CREATE TABLE EVALUATE(
   eva_title nvarchar(MAX) not null,
   eva_content nvarchar(MAX) not null,
   eva_rate int not null,
-  eva_imgs varchar,
+  eva_imgs varchar(MAX),
 )
 GO
 insert into CUSTOMER values ('admin', 'admin', N'Đặng Quốc Lai', '0772960922', N'606 Quốc lộ 13, P. Hiệp Bình Phước, Q. Thủ Đức, TP. HCM', 1),
@@ -163,7 +164,7 @@ insert into CUSTOMER values ('admin', 'admin', N'Đặng Quốc Lai', '077296092
 -- ============================================
 -- Author: Dang Lai
 -- Create date: 9:00 20/12/12
--- Update date:  select * from CUSTOMER
+-- Update date:  
 -- Update content:
 -- Description: Thêm dữ liệu vào các bảng book, evaluate, authot,...
 -- cào từ html tiki
@@ -223,6 +224,7 @@ IF NOT EXISTS (SELECT shop_id = @shop_id FROM SHOP WHERE shop_name = @shop_name)
     @aut_id,
     @com_id,
     @pub_id,
-    @cat_id
+    @cat_id, 
+	@shop_id
   )
 END
