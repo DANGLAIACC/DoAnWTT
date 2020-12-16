@@ -129,12 +129,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\img\undraw_posting_photo.svg" />
-    <Content Include="Areas\Admin\img\undraw_profile.svg" />
-    <Content Include="Areas\Admin\img\undraw_profile_1.svg" />
-    <Content Include="Areas\Admin\img\undraw_profile_2.svg" />
-    <Content Include="Areas\Admin\img\undraw_profile_3.svg" />
-    <Content Include="Areas\Admin\img\undraw_rocket.svg" />
     <Content Include="Content\Admin\svg.css" />
     <Content Include="Content\Admin\chart.css" />
     <Content Include="Content\Admin\portal.css" />
@@ -152,9 +146,9 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="img\adDangNhap.png" />
     <Content Include="img\Admin\app-logo.svg" />
-    <Content Include="img\Admin\background\background-1.jpg" />
-    <Content Include="img\Admin\background\background-2.jpg" />
-    <Content Include="img\Admin\background\background-3.jpg" />
+    <Content Include="Content\Admin\background\background-1.jpg" />
+    <Content Include="Content\Admin\background\background-2.jpg" />
+    <Content Include="Content\Admin\background\background-3.jpg" />
     <Content Include="img\Admin\doc-thumb-1.jpg" />
     <Content Include="img\Admin\doc-thumb-2.jpg" />
     <Content Include="img\Admin\portal-logo.svg" />
@@ -178,6 +172,7 @@
     <Content Include="img\sprite2.png" />
     <Content Include="Scripts\Admin\app.js" />
     <Content Include="Scripts\Admin\chart.min.js" />
+    <Content Include="Scripts\Admin\charts-demo.js" />
     <Content Include="Scripts\Admin\font-awesome.all.min.js" />
     <Content Include="Scripts\Admin\index-charts.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -209,6 +204,14 @@
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
     <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Notifications.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\NotFound.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Orders.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Docs.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Chart.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Setting.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Account.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />

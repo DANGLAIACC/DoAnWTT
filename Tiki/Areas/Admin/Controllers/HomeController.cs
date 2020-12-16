@@ -17,6 +17,36 @@ namespace Tiki.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult Notifications()
+        {
+            return View();
+        }
+        public ActionResult NotFound()
+        {
+            return View();
+        }
 
+        public ActionResult Orders()
+        {
+            return View();
+        }
+
+        public ActionResult Docs()
+        {
+            return View();
+        }
+        public ActionResult Chart()
+        {
+            return View();
+        }
+        public ActionResult Setting()
+        {
+            return View();
+        }
+
+        public ActionResult Account()
+        {
+            return View();
+        }
     }
 }
