@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8355e62d017c483e824d7d905a68e037" Name="Diagram1">
+        <EntityTypeShape EntityType="TIKIModel.AUTHOR" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TIKIModel.BOOK" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TIKIModel.CATEGORY" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TIKIModel.COMPANY" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="TIKIModel.CUSTOMER" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TIKIModel.EMPLOYEE" Width="1.5" PointX="5.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TIKIModel.EVALUATE" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TIKIModel.ORDER_DETAIL" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TIKIModel.ORDER" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TIKIModel.PUBLISHER" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TIKIModel.SHOP" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="TIKIModel.FK__BOOK__aut_id__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="TIKIModel.FK__BOOK__cat_id__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="TIKIModel.FK__BOOK__com_id__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="TIKIModel.FK__BOOK__pub_id__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="TIKIModel.FK__BOOK__shop_id__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="TIKIModel.FK__EVALUATE__book_i__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="TIKIModel.FK__ORDER_DET__book___4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="TIKIModel.FK__EVALUATE__cus_us__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="TIKIModel.FK__ORDERS__cus_urs__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="TIKIModel.FK__ORDER_DET__ord_i__4E88ABD4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

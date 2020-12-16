@@ -2,14 +2,15 @@
 @{
     ViewBag.Title = "Chi tiết sách gì đó";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
+}
+@model BOOK
 
 <section class="book d-flex">
 
     <div class="book__left">
-        <img src="https://salt.tikicdn.com/cache/w444/ts/product/15/11/f8/56b303e000cb42faada663569fc5d7c9.jpg"
-             alt="Tên sản phẩm">
+        <img src="@string.Format("https://salt.tikicdn.com/cache/w444/ts/product/{0}.jpg",Model.book_img)"
+             alt="@Model.book_name">
 
     </div>
     <!-- /.book__left-->

@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Nhà sách Tiki";
 }
+@model List<BOOK> 
 
 <div class="category">
 
@@ -588,13 +589,15 @@
             <!-- /.category__product__list -->
 
             <div class="category__product__items">
-                <a href="/">
+                @foreach (var i in Model)
+                {
+                <a href="@Url.Action("/Detail/"+i.book_id)">
                     <div class="similar__item ">
                         <div class="text-center">
-                            <img src="https://salt.tikicdn.com/cache/280x280/ts/product/a0/73/4f/92af6309562efb8d90602ab2efdf42b3.jpg"
-                                 alt="Tên sách item">
+                            <img src="@string.Format("https://salt.tikicdn.com/cache/280x280/ts/product/{0}.jpg",i.book_img)"
+                                 alt="@i.book_name">
                         </div>
-                        <p class="similar__item__name">Kiên trì ắc được đền đáp (Tái bản)</p>
+                        <p class="similar__item__name">@i.book_name</p>
                         <div>
                             <p class="d-inline similar__item__stars">
                                 <i class="icomoon icomoon-star"></i>
@@ -606,85 +609,14 @@
                             </p>
                         </div>
                         <p class="price">
-                            39.000 ₫
-                            <span class="percent ">-40%</span>
-                            <span class="original ">65.000 ₫</span>
+                            @string.Format("{0:#,##0}đ", i.book_sale)
+                            <span class="percent ">-@Math.Ceiling((decimal)(1 - 1.0 * i.book_sale / i.book_price) * 100)%</span>
+                            <span class="original ">@string.Format("{0:#,##0}đ", i.book_price)</span>
                         </p>
                     </div>
                 </a>
-                <a href="#">
-                    <div class="similar__item ">
-                        <div class="text-center">
-                            <img src="https://salt.tikicdn.com/cache/280x280/ts/product/a0/73/4f/92af6309562efb8d90602ab2efdf42b3.jpg"
-                                 alt="Tên sách item">
-                        </div>
-                        <p class="similar__item__name">Kiên trì ắc được đền đáp (Tái bản)</p>
-                        <div>
-                            <p class="d-inline similar__item__stars">
-                                <i class="icomoon icomoon-star"></i>
-                                <i class="icomoon icomoon-star"></i>
-                                <i class="icomoon icomoon-star"></i>
-                                <i class="icomoon icomoon-star"></i>
-                                <i class="icomoon icomoon-star"></i>
-                                <span class="number">(386 đánh giá)</span>
-                            </p>
-                        </div>
-                        <p class="price">
-                            39.000 ₫
-                            <span class="percent ">-40%</span>
-                            <span class="original ">65.000 ₫</span>
-                        </p>
-                    </div>
-                </a>
-                <a href="">
+                }
 
-                    <div class="similar__item ">
-                        <div class="text-center">
-                            <img src="https://salt.tikicdn.com/cache/280x280/ts/product/a0/73/4f/92af6309562efb8d90602ab2efdf42b3.jpg"
-                                 alt="Tên sách item">
-                        </div>
-                        <p class="similar__item__name">Kiên trì ắc được đền đáp (Tái bản)</p>
-                        <div>
-                            <p class="d-inline similar__item__stars">
-                                <i class="icomoon icomoon-star"></i>
-                                <i class="icomoon icomoon-star"></i>
-                                <i class="icomoon icomoon-star"></i>
-                                <i class="icomoon icomoon-star"></i>
-                                <i class="icomoon icomoon-star"></i>
-                                <span class="number">(386 đánh giá)</span>
-                            </p>
-                        </div>
-                        <p class="price">
-                            39.000 ₫
-                            <span class="percent ">-40%</span>
-                            <span class="original ">65.000 ₫</span>
-                        </p>
-                    </div>
-                </a>
-                <a href="/">
-                    <div class="similar__item ">
-                        <div class="text-center">
-                            <img src="https://salt.tikicdn.com/cache/280x280/ts/product/a0/73/4f/92af6309562efb8d90602ab2efdf42b3.jpg"
-                                 alt="Tên sách item">
-                        </div>
-                        <p class="similar__item__name">Kiên trì ắc được đền đáp (Tái bản)</p>
-                        <div>
-                            <p class="d-inline similar__item__stars">
-                                <i class="icomoon icomoon-star"></i>
-                                <i class="icomoon icomoon-star"></i>
-                                <i class="icomoon icomoon-star"></i>
-                                <i class="icomoon icomoon-star"></i>
-                                <i class="icomoon icomoon-star"></i>
-                                <span class="number">(386 đánh giá)</span>
-                            </p>
-                        </div>
-                        <p class="price">
-                            39.000 ₫
-                            <span class="percent ">-40%</span>
-                            <span class="original ">65.000 ₫</span>
-                        </p>
-                    </div>
-                </a>
             </div>
             <!-- /.category__product__items -->
         </section>
