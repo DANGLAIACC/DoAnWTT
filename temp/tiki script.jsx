@@ -72,6 +72,9 @@ function getbook() {
     .innerText.replaceAll(".", "")
     .replace("₫", "");
 
+  var shop_name = document.querySelector(
+    "#__next > div:nth-child(1) > main > div:nth-child(4) > div > div.indexstyle__ProductContent-qd1z2k-3.hPysQm > div.body > div > div.right > div.style__StyledCurrentSeller-i5oomf-0.eDEtVI > div.seller-info > div.seller-icon-and-name > div > a > span:nth-child(1)"
+  ).innerText;
   var arrDate = document
     .querySelector(
       "#__next > div:nth-child(1) > main > div:nth-child(8) > div > div.left > div:nth-child(2) > div > table > tbody > tr:nth-child(2) > td:nth-child(2)"
@@ -113,7 +116,7 @@ function getbook() {
     "#__next > div:nth-child(1) > main > div:nth-child(4) > div > div.indexstyle__ProductContent-qd1z2k-3.hPysQm > div.header > div.brand > span > h6 > a"
   ).innerText;
 
-  var strEnd = `exec spInsertBook @book_name = N'${book_name}', @book_img = '${book_img}', @book_price = ${book_price}, @book_sale = ${book_sale}, @public_date = '${public_date}', @width = ${width}, @height = ${height}, @page_number = ${page_number}, @cover_type = N'${cover_type}', @article = N'${article}', @translator = N'${translator}', @aut_name = N'${aut_name}', @com_name = N'${com_name}', @pub_name = N'${pub_name}', @cat_name = N'${cat_name}';`;
+  var strEnd = `exec spInsertBook @book_name = N'${book_name}', @book_img = '${book_img}', @book_price = ${book_price}, @book_sale = ${book_sale}, @public_date = '${public_date}', @width = ${width}, @height = ${height}, @page_number = ${page_number}, @cover_type = N'${cover_type}', @article = N'${article}', @translator = N'${translator}', @aut_name = N'${aut_name}', @com_name = N'${com_name}', @pub_name = N'${pub_name}', @cat_name = N'${cat_name}', @shop_name = N'${shop_name}';`;
 
   return strEnd;
 }
@@ -222,7 +225,7 @@ function getevaluate() {
     console.warn("line 210 - bookId: ", bookId);
     results += `('${
       arrUsername[i]
-    }', ${bookId}, '${date}', '${eva_title}', '${eva_content}', ${rate}, '${eva_imgs.slice(
+    }', ${bookId}, '${date}', N'${eva_title}', N'${eva_content}', ${rate}, '${eva_imgs.slice(
       0,
       -1
     )}'),`;
@@ -231,7 +234,7 @@ function getevaluate() {
   setBookId(+bookId + 1);
   console.warn("book id new: " + localStorage.getItem("bookId"));
 
-  return strEnd;
+  copyToClipboard(strEnd);
 }
 /*
 ttps://salt.tikicdn.com/cache/280x280/ts/product/c5/ae/c1/4c7861d860c406517a745d91b56db9b5.jpg
