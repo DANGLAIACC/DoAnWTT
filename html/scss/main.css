@@ -434,6 +434,9 @@ body {
   display: inline-block;
   width: 19.7%;
   padding: 16px;
+  height: 342px;
+  vertical-align: top;
+  margin-bottom: 15px;
 }
 
 .similar__item:hover {
@@ -447,6 +450,11 @@ body {
   font-weight: 300;
   margin-bottom: 0;
   color: #242424;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 20px;
 }
 
 .similar__item img {
@@ -473,8 +481,8 @@ body {
       -ms-grid-row-align: stretch;
       align-self: stretch;
   color: #242424;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   line-height: 1.6;
 }
 
@@ -677,9 +685,11 @@ body {
 .evaluate__item .evaluate__title {
   font-size: 16px;
   line-height: 24px;
+  font-weight: 600;
 }
 
 .evaluate__avatar > span {
+  display: inline-block;
   color: #999999;
   background-color: #d3d2d3;
   font-size: 18px;
@@ -689,7 +699,6 @@ body {
   border-radius: 50%;
   width: 48px;
   height: 48px;
-  display: inline-block;
 }
 
 .evaluate__info {
@@ -708,27 +717,31 @@ body {
           align-items: center;
 }
 
+.evaluate__info__content {
+  font-size: 14px;
+}
+
 .evaluate__info .ico-tick {
+  display: inline-block;
+  position: relative;
   width: 16px;
   height: 16px;
   background-color: #009900;
   border-radius: 50%;
-  position: relative;
   z-index: 1;
   margin: 0px 5px 0px 0px;
-  display: inline-block;
 }
 
 .evaluate__info .ico-tick:before {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   content: "";
   width: 10px;
   height: 5px;
   border-left: 1px solid white;
   border-bottom: 1px solid white;
-  position: absolute;
-  display: block;
-  left: 50%;
-  top: 50%;
   -webkit-transform: translate(-50%, -70%) rotate(-45deg);
           transform: translate(-50%, -70%) rotate(-45deg);
 }
@@ -769,6 +782,9 @@ body {
 }
 
 .evaluate__thank {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   padding: 8px 16px 9px;
   font-size: 14px;
   line-height: 20px;
@@ -778,23 +794,24 @@ body {
   border-radius: 4px;
   margin: 0px 8px 0px 0px;
   cursor: pointer;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
 }
 
 .evaluate__reply {
+  display: inline-block;
   padding: 8px 16px 9px;
   font-size: 14px;
   line-height: 20px;
   color: #0d5cb6;
   font-weight: 500;
   cursor: pointer;
-  display: inline-block;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+.evaluate__rate__content {
+  color: #ffc120;
 }
 
 .category {
@@ -892,7 +909,7 @@ body {
 
 .category__content {
   display: inline-block;
-  width: calc(100% - 257px);
+  width: calc(100% - 260px);
   vertical-align: top;
 }
 

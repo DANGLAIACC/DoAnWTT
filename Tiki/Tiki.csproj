@@ -126,6 +126,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\GlobalFunction.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -185,6 +186,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Tiki.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BookDetailVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Admin\svg.css" />
