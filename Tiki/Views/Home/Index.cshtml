@@ -1,17 +1,6 @@
 ﻿@{
     ViewBag.Title = "Nhà sách Tiki";
-}
-@functions{
-    public string renderStar(ICollection<EVALUATE> lst)
-    {
-        int tong = 0;
-        foreach (var e in lst)
-            tong += e.eva_rate;
-        int countStar = (int)Math.Ceiling(tong * 1.0 / lst.Count);
-
-        return Tiki.App_Code.GlobalFunction.RenderStar(countStar);
-    }
-}
+} 
 @model List<BOOK>
 
 
@@ -237,15 +226,16 @@
                         NXB
                         Phụ Nữ Việt Nam
                     </a>
-                </div><a href="javascript:" class="toggler">
+                </div>
+                <a href="javascript:" class="toggler">
                     Xem thêm<svg stroke="currentColor" fill="currentColor"
                                  stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em"
                                  xmlns="http://www.w3.org/2000/svg">
                         <path d= "M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z" >
-                        </ path >
-                        </ svg >
-                        </ a >
-                        </ div >
+                        </path >
+                        </svg >
+                        </a >
+                        </div >
                         <div class="block">
                         <h4 class="title">Tác giả</h4>
                         <div class="list collapsed">
@@ -372,10 +362,10 @@
                                          stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em"
                                          xmlns="http://www.w3.org/2000/svg">
                                 <path d= "M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z" >
-                                </ path >
-                                </ svg >
-                                </ a >
-                                </ div >
+                                </path >
+                                </svg >
+                                </a >
+                                </div >
                                 <div class="block">
                                 <h4 class="title">Nhà cung cấp</h4>
                                 <div class="list collapsed">
@@ -615,7 +605,7 @@
                             <p class="similar__item__name">@i.book_name</p>
                             <div>
                                 <p class="d-inline similar__item__stars">
-                                    @Html.Raw(renderStar(i.EVALUATEs))
+                                    @Html.Raw(Tiki.App_Code.GlobalFunction.RenderStarByListEva(i.EVALUATEs))
                                     <span class="number">(@i.EVALUATEs.Count đánh giá)</span>
                                 </p>
                             </div>
