@@ -3,9 +3,32 @@
     ViewBag.Title = "Giỏ hàng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@using Tiki.Models; 
 <h2>Giỏ hàng</h2>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub total</th>
+    </tr>
+    @foreach (var c in (List<CartModel>) Session["cart"])
+    {
+        <tr>
+            <td>@Html.ActionLink("Xóa", "Remove", "Cart", new { book_id = c.b.book_id }, null)</td>
+            <td>@c.b.book_name</td>
+            <td>@c.b.book_sale</td>
+            <td>@c.Quantity</td>
+            <td>@(c.b.book_sale * c.Quantity)</td>
+        </tr>
+    }
+</table>
+
+    <p>-----------------------------------------------------------------------</p>
 <section class="cart-products">
+
     <div class="cart-products-group">
         <a href="https://tiki.vn/cua-hang/tiki-trading" target="_blank"
            class="cart-products-group-name"><span>Tiki Trading</span></a>

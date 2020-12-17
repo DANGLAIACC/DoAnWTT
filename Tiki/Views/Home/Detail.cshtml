@@ -106,8 +106,10 @@
                 <div class="augment"></div>
             </div>
             <!-- /.book__quantity -->
-
-            <button class="btn btn-add-to-cart">Chọn mua</button>
+             
+            @Html.ActionLink("Mua ngay", "Add", "Cart",new { book_id = Model.book_id}, new {
+           @class = "btn btn-add-to-cart"
+       })
         </div>
         <!-- /.book__right__content -->
 
