@@ -17,6 +17,11 @@
         }
         return Math.Round(tong * 1.0 / lst.Count, 1).ToString();
     }
+
+    public string RenderDetail(string text, string value)
+    {
+        return (value != "") ? string.Format("<li>{0}</li><li>{1}</li>",text,value) : "";
+    }
 }
 @model BOOK
 
@@ -62,7 +67,7 @@
                 <p class='d-inline' style='color: rgb(255, 193, 32);'>
                     @Html.Raw(Tiki.App_Code.GlobalFunction.RenderStarByListEva(Model.EVALUATEs))
                 </p>
-                <a class="number">(Xem @Model.EVALUATEs.Count đánh giá)</a>
+                <a class="number" href="#evaluate">(Xem @Model.EVALUATEs.Count đánh giá)</a>
             </div>
 
         </div>
@@ -295,22 +300,13 @@
 <h4 class="title">THÔNG TIN CHI TIẾT</h4>
 <section class="detail">
     <ul class="list-unstyled">
-        <li>Công ty phát hành</li>
-        <li>First News - Trí Việt</li>
-        <li>Ngày xuất bản</li>
-        <li>10-2020</li>
-        <li>Kích thước</li>
-        <li>16 x 24 cm</li>
-        <li>Dịch Giả</li>
-        <li>Lê Đỗ Quỳnh Hương</li>
-        <li>Loại bìa</li>
-        <li>Bìa gập</li>
-        <li>Số trang</li>
-        <li>342</li>
-        <li>SKU</li>
-        <li>2019473448712</li>
-        <li>Nhà xuất bản</li>
-        <li>Nhà Xuất Bản Tổng hợp TP.HCM</li>
+        @Html.Raw(RenderDetail("Công ty phát hành", Model.COMPANY.com_name))
+        @Html.Raw(RenderDetail("Ngày xuất bản", Model.public_date.Month+" - "+Model.public_date.Year))
+        @Html.Raw(RenderDetail("Kích thước", Model.width + "cm x " + Model.height+"cm"))
+        @Html.Raw(RenderDetail("Dịch Giả", Model.translator))
+        @Html.Raw(RenderDetail("Loại bìa", Model.cover_type))
+        @Html.Raw(RenderDetail("Số trang", Model.page_number.ToString()))
+        @Html.Raw(RenderDetail("Nhà xuất bản", Model.PUBLISHER.pub_name))
     </ul>
     <div class="clear-both"></div>
 </section>
@@ -327,7 +323,7 @@
 </section>
 <!-- /.container -->
 
-<h4 class="title">KHÁCH HÀNG NHẬN XÉT</h4>
+<h4 class="title" id="evaluate">KHÁCH HÀNG NHẬN XÉT</h4>
 
 <section class="evaluate">
     <div class="evaluate__top">
@@ -411,23 +407,21 @@
                         </span>
                     </div>
                     <div class="evaluate__info__content">
-                        <span class="evaluate__date">Nhận xét vào @e.eva_date.Date tháng @e.eva_date.Month năm @e.eva_date.Year</span>
+                        <span class="evaluate__date">Nhận xét ngày @e.eva_date.Day tháng @e.eva_date.Month năm @e.eva_date.Year</span>
                         <span class="evaluate__seller"> Mua từ nhà bán Tiki Trading</span>
                     </div>
                 </div>
             </div>
             <div class="evaluate__rate">
-
                 <p class="evaluate__rate__content">
                     @Html.Raw(Tiki.App_Code.GlobalFunction.RenderStarByCount(e.eva_rate))
                 </p>
-
             </div>
             <div class="evaluate__title">@e.eva_title</div>
             <div class="evaluate__content">@e.eva_content</div>
             <div class="evaluate__images">
                 @{
-                    if(e.eva_imgs != "")
+                    if (e.eva_imgs != "")
                     {
                         string[] arr = e.eva_imgs.Split(';');
                         foreach (var item in arr)
@@ -435,7 +429,7 @@
                             <img src="@string.Format("https://vcdn.tikicdn.com/ts/review/{0}.jpg",item)" alt="">
                         }
                     }
-                } 
+                }
             </div>
             <span class="evaluate__thank">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
