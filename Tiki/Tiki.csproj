@@ -144,8 +144,9 @@
     <Compile Include="COMPANY.cs">
       <DependentUpon>Tiki.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AuthorController.cs" />
+    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="CUSTOMER.cs">
       <DependentUpon>Tiki.tt</DependentUpon>
     </Compile>
@@ -258,13 +259,11 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Views\Author\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -283,8 +282,8 @@
     <Content Include="Areas\Admin\Views\Home\Setting.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Account.cshtml" />
     <None Include="packages.config" />
-    <Content Include="Views\Home\Detail.cshtml" />
-    <Content Include="Views\Cart\Cart.cshtml" />
+    <Content Include="Views\Book\Detail.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
     <EntityDeploy Include="Tiki.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Tiki.Designer.cs</LastGenOutput>
@@ -292,6 +291,7 @@
     <Content Include="Tiki.edmx.diagram">
       <DependentUpon>Tiki.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Book\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

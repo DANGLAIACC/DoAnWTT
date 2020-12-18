@@ -40,7 +40,7 @@ namespace Tiki.Controllers
                     cart[index].Quantity++;
                 Session["cart"] = cart;
             }
-            return View("cart");
+            return View("Index");
         }
         public ActionResult Remove(int book_id)
         {
@@ -49,7 +49,7 @@ namespace Tiki.Controllers
             if (index != -1)
                 cart.RemoveAt(index);
             Session["cart"] = cart;
-            return View("cart");
+            return View("Index");
         }
         /// <summary>
         /// Tìm mã sách trong danh sách giỏ hàng ở session

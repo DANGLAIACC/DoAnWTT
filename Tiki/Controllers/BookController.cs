@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Tiki.ViewModel;
+
 namespace Tiki.Controllers
 {
-    public class HomeController : Controller
+    public class BookController : Controller
     {
-        private TIKIContext database = new TIKIContext(); 
+        private TIKIContext database = new TIKIContext();
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -24,13 +24,13 @@ namespace Tiki.Controllers
         }
 
         public ActionResult Index()
-        { 
-            return View("Index", database.BOOKs.Include("EVALUATEs").ToList());
+        {
+            return View(database.BOOKs.Include("EVALUATEs").ToList());
         }
 
-        public ActionResult Detail(int? id)
+        public ActionResult Detail(int? book_id)
         {
-            if (id == null) return Index(); 
+            if (book_id == null) return Index();
 
             var query = database.BOOKs
                 .Include("AUTHOR")
@@ -38,14 +38,10 @@ namespace Tiki.Controllers
                 .Include("SHOP")
                 .Include("PUBLISHER")
                 .Include("EVALUATEs")
-                .Where(b=>b.book_id==id)
+                .Where(b => b.book_id == book_id)
                 .FirstOrDefault();
 
-            return View("Detail",query);
-        }
-        public ActionResult Cart()
-        {
-            return View();
+            return View("Detail", query);
         }
     }
 }

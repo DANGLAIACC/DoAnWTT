@@ -15,8 +15,8 @@ namespace Tiki
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                url: "{controller}/{action}/{book_id}",
+                defaults: new { controller = "Book", action = "Index", book_id = UrlParameter.Optional },
                 new string[] {"Tiki.Controllers"} 
             );
         }

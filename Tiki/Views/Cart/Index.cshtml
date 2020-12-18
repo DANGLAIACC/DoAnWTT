@@ -3,7 +3,8 @@
     ViewBag.Title = "Giỏ hàng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using Tiki.Models; 
+@using Tiki.Models;
+@using Tiki.App_Code;
 <h2>Giỏ hàng</h2>
 
 <table>
@@ -14,25 +15,77 @@
         <th>Quantity</th>
         <th>Sub total</th>
     </tr>
-    @foreach (var c in (List<CartModel>) Session["cart"])
+    @if (Session["cart"] != null)
     {
-        <tr>
-            <td>@Html.ActionLink("Xóa", "Remove", "Cart", new { book_id = c.b.book_id }, null)</td>
-            <td>@c.b.book_name</td>
-            <td>@c.b.book_sale</td>
-            <td>@c.Quantity</td>
-            <td>@(c.b.book_sale * c.Quantity)</td>
-        </tr>
+        foreach (var c in (List<CartModel>)Session["cart"])
+        {
+            <tr>
+                <td>@Html.ActionLink("Xóa", "Remove", "Cart", new { book_id = c.b.book_id }, null)</td>
+                <td>@c.b.book_name</td>
+                <td>@c.b.book_sale</td>
+                <td>@c.Quantity</td>
+                <td>@(c.b.book_sale * c.Quantity)</td>
+            </tr>
+        }
     }
 </table>
 
-    <p>-----------------------------------------------------------------------</p>
+<p>-----------------------------------------------------------------------</p>
 <section class="cart-products">
 
     <div class="cart-products-group">
         <a href="https://tiki.vn/cua-hang/tiki-trading" target="_blank"
            class="cart-products-group-name"><span>Tiki Trading</span></a>
         <ul class="list-unstyled m-0 p-0">
+
+            @if (Session["cart"] != null)
+            {
+                foreach (var c in (List<CartModel>)Session["cart"])
+                {
+                    <li class="cart-products__li">
+                        <div class="cart-products__inner">
+                            <div class="cart-products__img">
+                                <a href="/dung-lua-chon-an-nhan-khi-con-tre-p11232442.html?spid=11232443">
+                                    <img src="https://salt.tikicdn.com/cache/200x200/ts/product/eb/62/6b/0e56b45bddc01b57277484865818ab9b.jpg"
+                                         alt="@c.b.book_name">
+                                </a>
+                            </div>
+                            <div class="cart-products__content w-100">
+                                <div class="cart-products__content--inner">
+                                    <div class="cart-products__desc">
+                                        @Html.ActionLink(c.b.book_name, "Detail", "Book", new { book_id = c.b.book_id }, new { @class = "cart-products__name" })
+
+                                        <p class="cart-products__author">
+                                            <span> - Tác giả: </span>
+                                            <a href=@Url.Action("/Author/" + c.b.aut_id)>@c.b.AUTHOR.aut_name</a>
+                                        </p><span class="cart-products__bookcare">
+                                            Sách có thể bọc bằng <a href="/bookcare">BookCare</a>
+                                        </span>
+                                        <p class="cart-products__actions">
+                                            @Html.ActionLink("Xóa", "Remove", "Cart", new { book_id = c.b.book_id }, new { @class = "cart-products__del" })
+                                            <span class="cart-products__buy-later">Để dành mua sau</span>
+                                        </p>
+                                    </div>
+                                    <div class="cart-products__details">
+                                        <div class="cart-products__pricess">
+                                            <p class="cart-products__real-prices">@GlobalFunction.FormatPrice(c.b.book_sale)</p>
+                                            <p class="cart-products__discount-prices">
+                                                <del>@GlobalFunction.FormatPrice(c.b.book_price)</del>
+                                                <span class="cart-products__percent-prices">-@Math.Ceiling((decimal)(1 - 1.0 * c.b.book_sale / c.b.book_price) * 100)%</span>
+                                            </p>
+                                        </div>
+                                        <div class="book__quantity d-flex">
+                                            <div class="abate"></div>
+                                            <div class="number">@c.Quantity</div>
+                                            <div class="augment"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
             <li>
                 <div class="cart-products__inner">
                     <div class="cart-products__img">
@@ -46,7 +99,7 @@
                             <div class="cart-products__desc">
                                 <a class="cart-products__name"
                                    href="/suc-manh-cua-ngon-tu-tang-kem-1-photocard-mintbooks-limited-p57870426.html?spid=57870427">
-                                    Sức
+                                    Sức -----------------------------------------------------------
                                     Mạnh Của Ngôn Từ (Tặng Kèm 1 Photocard Mintbooks Limited)
                                 </a>
 
@@ -76,7 +129,7 @@
                     </div>
                 </div>
             </li>
-            <li class="cart-products__product">
+            <li class="cart-products__li">
                 <div class="cart-products__inner">
                     <div class="cart-products__img">
                         <a href="/dung-lua-chon-an-nhan-khi-con-tre-p11232442.html?spid=11232443">
@@ -123,54 +176,6 @@
         </ul>
     </div>
 
-    <div class="cart-products-group">
-        <a href="https://tiki.vn/cua-hang/tiki-trading" target="_blank"
-           class="cart-products-group-name"><span>Tiki Trading</span></a>
-        <ul class="list-unstyled m-0 p-0">
-            <li>
-                <div class="cart-products__inner">
-                    <div class="cart-products__img">
-                        <a href="/suc-manh-cua-ngon-tu-tang-kem-1-photocard-mintbooks-limited-p57870426.html?spid=57870427">
-                            <img src="https://salt.tikicdn.com/cache/200x200/ts/product/54/6d/2f/b4be918982e5df06cc057454e806651e.jpg"
-                                 alt="Sức Mạnh Của Ngôn Từ&nbsp;(Tặng Kèm 1 Photocard Mintbooks Limited)">
-                        </a>
-                    </div>
-                    <div class="cart-products__content w-100">
-                        <div class="cart-products__content--inner">
-                            <div class="cart-products__desc">
-                                <a class="cart-products__name"
-                                   href="/suc-manh-cua-ngon-tu-tang-kem-1-photocard-mintbooks-limited-p57870426.html?spid=57870427">
-                                    Sức Mạnh Của Ngôn Từ (Tặng Kèm 1 Photocard Mintbooks Limited)
-                                </a>
-
-                                <p class="cart-products__author">
-                                    <span> - Tác giả: </span><a href="/author/shin-dohyeon.html">Shin Dohyeon</a>
-                                </p><span class="cart-products__bookcare">
-                                    Sách có thể bọc bằng <a href="/bookcare">BookCare</a>
-                                </span>
-                                <p class="cart-products__actions">
-                                    <span class="cart-products__del">Xóa</span><span class="cart-products__buy-later">Để dành mua sau</span>
-                                </p>
-                            </div>
-                            <div class="cart-products__details">
-                                <div class="cart-products__pricess">
-                                    <p class="cart-products__real-prices">66.900đ</p>
-                                    <p class="cart-products__discount-prices">
-                                        <del>96.000đ</del><span class="cart-products__percent-prices">-30%</span>
-                                    </p>
-                                </div>
-                                <div class="book__quantity d-flex">
-                                    <div class="abate "></div>
-                                    <div class="number">1</div>
-                                    <div class="augment"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
 </section>
 <!-- /.cart__items -->
 
