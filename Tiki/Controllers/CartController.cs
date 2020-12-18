@@ -66,5 +66,43 @@ namespace Tiki.Controllers
             }
             return -1;
         } 
+        /// <summary>
+        /// Giảm sách 1 đơn vị
+        /// </summary>
+        /// <param name="book_id"></param>
+        /// <returns></returns>
+        public ActionResult Abate(int book_id)
+        {
+            int index = findBookId(book_id);
+            if (index != -1)
+            {
+                List<CartModel> cart = (List<CartModel>)Session["cart"];
+                cart[index].Quantity--;
+                Session["cart"] = cart;
+            }
+            return RedirectToAction("Index", "Cart");
+        }
+        /// <summary>
+        /// Tăng sách 1 đơn vị
+        /// </summary>
+        /// <param name="book_id"></param>
+        /// <returns></returns>
+        public ActionResult Augment(int book_id)
+        {
+            int index = findBookId(book_id);
+            if (index != -1)
+            {
+                List<CartModel> cart = (List<CartModel>)Session["cart"];
+                cart[index].Quantity++;
+                Session["cart"] = cart;
+            }
+            return RedirectToAction("Index","Cart");
+        }
+
+        public ActionResult Shipping()
+        {
+
+            return View();
+        }
     }
 }

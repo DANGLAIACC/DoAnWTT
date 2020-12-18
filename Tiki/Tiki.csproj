@@ -147,6 +147,7 @@
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="CUSTOMER.cs">
       <DependentUpon>Tiki.tt</DependentUpon>
     </Compile>
@@ -264,6 +265,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Views\Author\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -292,6 +294,8 @@
       <DependentUpon>Tiki.edmx</DependentUpon>
     </Content>
     <Content Include="Views\Book\Index.cshtml" />
+    <Content Include="Views\Partial\_ModalLogin.cshtml" />
+    <Content Include="Views\Cart\Shipping.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

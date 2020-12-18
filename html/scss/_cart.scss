@@ -1,4 +1,17 @@
 .cart {
+  &-empty__btn {
+    background-color: rgb(253, 216, 53);
+    color: rgb(74, 74, 74);
+    font-weight: 500;
+    padding: 10px 55px !important;
+    display: inline-block;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    &:hover {
+      color: rgb(74, 74, 74);
+    }
+  }
   &-products {
     width: 910px;
     background-color: transparent;
@@ -127,7 +140,7 @@
   display: inline-block;
   vertical-align: top;
   padding: 16px 0;
-  
+
   .coupon {
     margin-bottom: 16px;
     background: rgb(255, 255, 255);

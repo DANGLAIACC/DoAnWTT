@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Chi tiết sách gì đó";
+    ViewBag.Title = Model.book_name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     int[] arrRate = { 0, 0, 0, 0, 0 }; // 5*, 4*, 3*, 2*, 1*
@@ -38,7 +38,10 @@
         <div class="book__header position-relative">
             <div class="brand">
                 <div class="brand-and-author cus-border-right d-inline">
-                    <h6>Tác giả:<a href="/author/david-a-phillips.html">@Model.AUTHOR.aut_name</a></h6>
+                    <h6>
+                        Tác giả:
+                        @Html.ActionLink(@Model.AUTHOR.aut_name,"Index","Author",new { aut_id = Model.aut_id},null)
+                    </h6>
                 </div>
                 <div class="bestseller d-inline">
                     <p class="d-inline">
@@ -106,7 +109,6 @@
                 <div class="augment"></div>
             </div>
             <!-- /.book__quantity -->
-             
             @Html.ActionLink("Mua ngay", "Add", "Cart",new { book_id = Model.book_id}, new {
            @class = "btn btn-add-to-cart"
        })

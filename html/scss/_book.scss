@@ -138,6 +138,13 @@
         background: #ccc;
         margin: 15px auto;
       }
+      &.active {
+        cursor: pointer;
+        pointer-events: auto;
+        &:before {
+          background: #288ad6;
+        }
+      }
     }
     .number {
       font-size: 14px;

@@ -7,10 +7,20 @@ namespace Tiki.App_Code
 {
     public class GlobalFunction
     {
+        /// <summary>
+        /// Định dạng tiền tệ
+        /// </summary>
+        /// <param name="price"></param>
+        /// <returns></returns>
         public static string FormatPrice(int? price)
         {
             return string.Format("{0:#,##0}đ", price).Replace(",", ".");
         }
+        /// <summary>
+        /// tạo chuỗi ngôi sao đánh giá từ danh sách bình luận
+        /// </summary>
+        /// <param name="lst"></param>
+        /// <returns></returns>
         public static string RenderStarByListEva(ICollection<EVALUATE> lst)
         {
             int tong = 0;
@@ -19,6 +29,11 @@ namespace Tiki.App_Code
 
             return RenderStarByCount((int)Math.Floor(tong * 1.0 / lst.Count));
         }
+        /// <summary>
+        /// Tạo chuỗi đánh giá từ số lượng
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public static string RenderStarByCount(int count)
         {
 
@@ -32,6 +47,17 @@ namespace Tiki.App_Code
                 result += "<i class='icomoon icomoon-star dark'></i>";
             }
             return result;
+        }
+        /// <summary>
+        /// Tách tên từ chuỗi họ tên
+        /// </summary>
+        /// <param name="fullname"></param>
+        /// <returns></returns>
+
+        public static string getOnlyName(string fullname)
+        {
+            int i = fullname.LastIndexOf(' ');
+            return (i == -1) ? fullname : fullname.Substring(i + 1);
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Tiki.Controllers
 
         public ActionResult Detail(int? book_id)
         {
-            if (book_id == null) return Index();
+            if (book_id == null) return RedirectToAction("Index", "Book");
 
             var query = database.BOOKs
                 .Include("AUTHOR")

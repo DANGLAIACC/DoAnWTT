@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thay đổi cuộc sống với nhân tướng học</title>
-    <link rel="stylesheet" href="css/index.css"><link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="scss/main.css">
 </head>
 
@@ -62,12 +63,81 @@
                                             <br>
                                             của tôi</span>
                                     </div>
-                                    <button class="header__user text-decoration-none bg-none btn shadow-none p-0 d-flex"
-                                        data-bs-toggle="modal" data-bs-target="#modalDangNhap">
-                                        <i class="tikicon icon-user"></i>
-                                        <span><b>Đăng nhập</b><br>
-                                            Tài khoản</span>
-                                    </button>
+
+                                    <div class="header__user__account">
+                                        <button
+                                            class="header__user text-decoration-none bg-none btn shadow-none p-0 d-flex"
+                                            data-bs-toggle="modal" data-bs-target="#modalDangNhap">
+                                            <i class="tikicon icon-user"></i>
+                                            <span><b>Đăng nhập</b><br>
+                                                Tài khoản</span>
+                                        </button>
+
+                                        <div class="header__user__menu">
+                                            <a href="/sales/order/history?src=header_my_account">
+                                                Đơn hàng của tôi
+                                            </a>
+                                            <a href="/customer/notification?src=header_my_account">
+                                                Thông báo của tôi <span>22</span>
+                                            </a>
+                                            <a href="/customer/account/edit?src=header_my_account">
+                                                Tài khoản của tôi
+                                            </a>
+                                            <a href="/nhan-xet-san-pham-ban-da-mua?src=header_my_account">
+                                                Nhận xét sản phẩm đã mua
+                                            </a>
+                                            <a href="https://tiki.vn/customer/tikinow?src=header_my_account">
+                                                <span class="img"><img
+                                                        src="https://salt.tikicdn.com/ts/upload/5b/70/af/ac0eacaa8ec6738ac474f7bbe767bd75.png" />
+                                                </span>
+                                                <span class="content">
+                                                    <span>TikiNOW</span>
+                                                    <span>Đăng ký sử dụng ngay</span>
+                                                </span>
+
+                                            </a>
+                                            <a href="/customer/coupons?src=header_my_account">
+
+                                                <span class="img"><img
+                                                        src="https://frontend.tikicdn.com/_desktop-next/static/img/mycoupon/coupon_code.svg" />
+                                                </span>
+                                                <span class="content">
+                                                    <span>Mã giảm giá</span>
+                                                    <span>Bạn đang có <b>0</b> mã giảm giá</span>
+                                                </span>
+
+                                            </a>
+                                            <a href="/customer/reward?src=header_my_account">
+
+                                                <span class="img">
+                                                    <img
+                                                        src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/tikixu.svg" />
+                                                </span>
+                                                <span class="content">
+                                                    <span>Thông tin Tiki Xu</span>
+                                                    <span>Bạn đang có <b>1.000</b> Tiki xu</span>
+                                                </span>
+
+                                            </a>
+                                            <a href="/customer/bookcare?src=header_my_account">
+                                                <span class="img">
+                                                    <img
+                                                        src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/bookcare.svg" />
+                                                </span>
+                                                <span class="content">
+                                                    <span>Thông tin BookCare</span>
+                                                    <span>Bạn đang có <b>0</b> BookCare</span>
+                                                </span>
+
+                                            </a>
+                                            <a href="/doi-tra-de-dang?src=header_my_account" >
+                                                Đổi trả dễ dàng
+                                            </a>
+                                            <a>
+                                                Thoát tài khoản
+                                            </a>
+                                        </div>
+                                    </div>
 
                                     <a class="header__user text-decoration-none header__card"
                                         href='../WebForm/GioHang.aspx'>

@@ -5,212 +5,143 @@
 }
 @using Tiki.Models;
 @using Tiki.App_Code;
-<h2>Giỏ hàng</h2>
-
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Sub total</th>
-    </tr>
-    @if (Session["cart"] != null)
+@{
+    int? TongTien = 0;
+    if (Session["cart"] != null)
     {
-        foreach (var c in (List<CartModel>)Session["cart"])
+        List<CartModel> cart = (List<CartModel>)Session["cart"];
+        foreach (CartModel item in cart)
         {
-            <tr>
-                <td>@Html.ActionLink("Xóa", "Remove", "Cart", new { book_id = c.b.book_id }, null)</td>
-                <td>@c.b.book_name</td>
-                <td>@c.b.book_sale</td>
-                <td>@c.Quantity</td>
-                <td>@(c.b.book_sale * c.Quantity)</td>
-            </tr>
+            TongTien += item.b.book_sale * item.Quantity;
         }
     }
-</table>
+}
 
-<p>-----------------------------------------------------------------------</p>
-<section class="cart-products">
+<h2 style=" font-size: 18px; color: rgb(51, 51, 51); margin: 20px 0px 15px; font-weight: 400;">Giỏ hàng</h2>
 
-    <div class="cart-products-group">
-        <a href="https://tiki.vn/cua-hang/tiki-trading" target="_blank"
-           class="cart-products-group-name"><span>Tiki Trading</span></a>
-        <ul class="list-unstyled m-0 p-0">
+@if (TongTien == 0)
+{
+    <div class="bg-white text-center" style=" padding: 40px 20px; border-radius: 4px;">
+        <img src="https://salt.tikicdn.com/desktop/img/mascot@2x.png" alt="cart__empty" class="cart__empty__img" style="width: 190px;">
+        <p class="cart__empty__note" style="font-size: 13px; font-weight: 500; margin: 15px 0px 30px;">Không có sản phẩm nào trong giỏ hàng của bạn.</p>
+        @Html.ActionLink("Tiếp tục mua sắm", "Index", "Book", null, new { @class = "cart-empty__btn" })
+    </div>
+}
+else
+{
 
-            @if (Session["cart"] != null)
-            {
-                foreach (var c in (List<CartModel>)Session["cart"])
+    <section class="cart-products">
+
+        <div class="cart-products-group">
+            <a href="https://tiki.vn/cua-hang/tiki-trading" target="_blank"
+               class="cart-products-group-name"><span>Tiki Trading</span></a>
+            <ul class="list-unstyled m-0 p-0">
+
+                @if (Session["cart"] != null)
                 {
-                    <li class="cart-products__li">
-                        <div class="cart-products__inner">
-                            <div class="cart-products__img">
-                                <a href="/dung-lua-chon-an-nhan-khi-con-tre-p11232442.html?spid=11232443">
-                                    <img src="https://salt.tikicdn.com/cache/200x200/ts/product/eb/62/6b/0e56b45bddc01b57277484865818ab9b.jpg"
-                                         alt="@c.b.book_name">
-                                </a>
-                            </div>
-                            <div class="cart-products__content w-100">
-                                <div class="cart-products__content--inner">
-                                    <div class="cart-products__desc">
-                                        @Html.ActionLink(c.b.book_name, "Detail", "Book", new { book_id = c.b.book_id }, new { @class = "cart-products__name" })
+                    foreach (var c in (List<CartModel>)Session["cart"])
+                    {
+                        <li class="cart-products__li">
+                            <div class="cart-products__inner">
+                                <div class="cart-products__img">
+                                    <a href="@Url.Action("Detail","Book",new { book_id = c.b.book_id })">
+                                        <img src="@string.Format("https://salt.tikicdn.com/cache/200x200/ts/product/{0}.jpg",c.b.book_img)"
+                                             alt="@c.b.book_name">
+                                    </a>
+                                </div>
+                                <div class="cart-products__content w-100">
+                                    <div class="cart-products__content--inner">
+                                        <div class="cart-products__desc">
+                                            @Html.ActionLink(c.b.book_name, "Detail", "Book", new { book_id = c.b.book_id }, new { @class = "cart-products__name" })
 
-                                        <p class="cart-products__author">
-                                            <span> - Tác giả: </span>
-                                            <a href=@Url.Action("/Author/" + c.b.aut_id)>@c.b.AUTHOR.aut_name</a>
-                                        </p><span class="cart-products__bookcare">
-                                            Sách có thể bọc bằng <a href="/bookcare">BookCare</a>
-                                        </span>
-                                        <p class="cart-products__actions">
-                                            @Html.ActionLink("Xóa", "Remove", "Cart", new { book_id = c.b.book_id }, new { @class = "cart-products__del" })
-                                            <span class="cart-products__buy-later">Để dành mua sau</span>
-                                        </p>
-                                    </div>
-                                    <div class="cart-products__details">
-                                        <div class="cart-products__pricess">
-                                            <p class="cart-products__real-prices">@GlobalFunction.FormatPrice(c.b.book_sale)</p>
-                                            <p class="cart-products__discount-prices">
-                                                <del>@GlobalFunction.FormatPrice(c.b.book_price)</del>
-                                                <span class="cart-products__percent-prices">-@Math.Ceiling((decimal)(1 - 1.0 * c.b.book_sale / c.b.book_price) * 100)%</span>
+                                            <p class="cart-products__author">
+                                                <span> - Tác giả: </span>
+                                                @Html.ActionLink(c.b.AUTHOR.aut_name, "Detail", "Author", new { aut_id = c.b.aut_id }, null)
+                                            </p><span class="cart-products__bookcare">
+                                                Sách có thể bọc bằng <a href="/bookcare">BookCare</a>
+                                            </span>
+                                            <p class="cart-products__actions">
+                                                @Html.ActionLink("Xóa", "Remove", "Cart", new { book_id = c.b.book_id }, new { @class = "cart-products__del" })
+                                                <span class="cart-products__buy-later">Để dành mua sau</span>
                                             </p>
                                         </div>
-                                        <div class="book__quantity d-flex">
-                                            <div class="abate"></div>
-                                            <div class="number">@c.Quantity</div>
-                                            <div class="augment"></div>
+                                        <div class="cart-products__details">
+                                            <div class="cart-products__pricess">
+                                                <p class="cart-products__real-prices">@GlobalFunction.FormatPrice(c.b.book_sale)</p>
+                                                <p class="cart-products__discount-prices">
+                                                    <del>@GlobalFunction.FormatPrice(c.b.book_price)</del>
+                                                    <span class="cart-products__percent-prices">-@Math.Ceiling((decimal)(1 - 1.0 * c.b.book_sale / c.b.book_price) * 100)%</span>
+                                                </p>
+                                            </div>
+                                            <div class="book__quantity d-flex">
+                                                <a class="@string.Format("abate {0}", c.Quantity>1?"active":"")"
+                                                   href="@Url.Action("Abate","Cart",new { book_id = c.b.book_id })">
+
+                                                </a>
+                                                <div class="number">@c.Quantity</div>
+                                                <a class="augment" href="@Url.Action("Augment","Cart",new { book_id = c.b.book_id })"></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
+                    }
                 }
-            }
-            <li>
-                <div class="cart-products__inner">
-                    <div class="cart-products__img">
-                        <a href="/suc-manh-cua-ngon-tu-tang-kem-1-photocard-mintbooks-limited-p57870426.html?spid=57870427">
-                            <img src="https://salt.tikicdn.com/cache/200x200/ts/product/54/6d/2f/b4be918982e5df06cc057454e806651e.jpg"
-                                 alt="Sức Mạnh Của Ngôn Từ (Tặng Kèm 1 Photocard Mintbooks Limited)">
-                        </a>
-                    </div>
-                    <div class="cart-products__content w-100">
-                        <div class="cart-products__content--inner">
-                            <div class="cart-products__desc">
-                                <a class="cart-products__name"
-                                   href="/suc-manh-cua-ngon-tu-tang-kem-1-photocard-mintbooks-limited-p57870426.html?spid=57870427">
-                                    Sức -----------------------------------------------------------
-                                    Mạnh Của Ngôn Từ (Tặng Kèm 1 Photocard Mintbooks Limited)
-                                </a>
-
-                                <p class="cart-products__author">
-                                    <span> - Tác giả: </span><a href="/author/shin-dohyeon.html">Shin Dohyeon</a>
-                                </p><span class="cart-products__bookcare">
-                                    Sách có thể bọc bằng <a href="/bookcare">BookCare</a>
-                                </span>
-                                <p class="cart-products__actions">
-                                    <span class="cart-products__del">Xóa</span><span class="cart-products__buy-later">Để dành mua sau</span>
-                                </p>
-                            </div>
-                            <div class="cart-products__details">
-                                <div class="cart-products__pricess">
-                                    <p class="cart-products__real-prices">66.900đ</p>
-                                    <p class="cart-products__discount-prices">
-                                        <del>96.000đ</del><span class="cart-products__percent-prices">-30%</span>
-                                    </p>
-                                </div>
-                                <div class="book__quantity d-flex">
-                                    <div class="abate "></div>
-                                    <div class="number">1</div>
-                                    <div class="augment"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="cart-products__li">
-                <div class="cart-products__inner">
-                    <div class="cart-products__img">
-                        <a href="/dung-lua-chon-an-nhan-khi-con-tre-p11232442.html?spid=11232443">
-                            <img src="https://salt.tikicdn.com/cache/200x200/ts/product/eb/62/6b/0e56b45bddc01b57277484865818ab9b.jpg"
-                                 alt="Đừng Lựa Chọn An Nhàn Khi Còn Trẻ">
-                        </a>
-                    </div>
-                    <div class="cart-products__content w-100">
-                        <div class="cart-products__content--inner">
-                            <div class="cart-products__desc">
-                                <a class="cart-products__name"
-                                   href="/dung-lua-chon-an-nhan-khi-con-tre-p11232442.html?spid=11232443">
-                                    Đừng
-                                    Lựa Chọn
-                                    An Nhàn Khi Còn Trẻ
-                                </a>
-
-                                <p class="cart-products__author">
-                                    <span> - Tác giả: </span><a href="/author/canh-thien.html">Cảnh Thiên</a>
-                                </p><span class="cart-products__bookcare">
-                                    Sách có thể bọc bằng <a href="/bookcare">BookCare</a>
-                                </span>
-                                <p class="cart-products__actions">
-                                    <span class="cart-products__del">Xóa</span><span class="cart-products__buy-later">Để dành mua sau</span>
-                                </p>
-                            </div>
-                            <div class="cart-products__details">
-                                <div class="cart-products__pricess">
-                                    <p class="cart-products__real-prices">56.100đ</p>
-                                    <p class="cart-products__discount-prices">
-                                        <del>81.000đ</del><span class="cart-products__percent-prices">-31%</span>
-                                    </p>
-                                </div>
-                                <div class="book__quantity d-flex">
-                                    <div class="abate "></div>
-                                    <div class="number">1</div>
-                                    <div class="augment"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-</section>
-<!-- /.cart__items -->
-
-<section class="cart-total">
-    <div class="cart-total-prices__inner">
-        <div class="coupon">
-            <div class="title-usage">
-                <p class="coupon-title">Mã khuyến mãi</p>
-                <p class="max-usage">
-                    Có thể chọn 2<img class="max-usage__info"
-                                      src="https://frontend.tikicdn.com/_desktop-next/static/img/mycoupon/icons-info-gray.svg"
-                                      alt="info">
-                </p>
-            </div>
-            <div class="eligible_coupon_list"></div>
-            <div class="show-more">
-                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/mycoupon/coupon_icon.svg"><span>
-                    Chọn
-                    hoặc
-                    nhập Khuyến mãi
-                </span>
-            </div>
+            </ul>
         </div>
-        <div class="cart__prices">
-            <div class="prices">
-                <ul class="prices__items">
-                    <li class="prices__item">
-                        <span class="prices__text">Tạm tính</span><span class="prices__value">242.500đ</span>
-                    </li>
-                </ul>
-                <p class="prices__total">
-                    <span class="prices__text">Thành tiền</span><span class="prices__value prices__value--final">242.500đ<i>(Đã bao gồm VAT nếu có)</i></span>
-                </p>
+
+    </section>
+    <!-- /.cart__items -->
+
+    <section class="cart-total">
+        <div class="cart-total-prices__inner">
+            <div class="coupon">
+                <div class="title-usage">
+                    <p class="coupon-title">Mã khuyến mãi</p>
+                    <p class="max-usage">
+                        Có thể chọn 2<img class="max-usage__info"
+                                          src="https://frontend.tikicdn.com/_desktop-next/static/img/mycoupon/icons-info-gray.svg"
+                                          alt="info">
+                    </p>
+                </div>
+                <div class="eligible_coupon_list"></div>
+                <div class="show-more">
+                    <img src="https://frontend.tikicdn.com/_desktop-next/static/img/mycoupon/coupon_icon.svg">
+                    <span>Chọn hoặc nhập Khuyến mãi</span>
+                </div>
             </div>
-        </div><button type="button" class="cart__submit">Tiến hành đặt hàng</button>
-    </div>
-</section>
-<!-- /.cart_total -->
+            <div class="cart__prices">
+                <div class="prices">
+                    <ul class="prices__items">
+                        <li class="prices__item">
+                            <span class="prices__text">Tạm tính</span><span class="prices__value">
+                                @GlobalFunction.FormatPrice(TongTien)
+                            </span>
+                        </li>
+                    </ul>
+                    <p class="prices__total">
+                        <span class="prices__text">Thành tiền</span>
+                        <span class="prices__value prices__value--final">
+                            @GlobalFunction.FormatPrice(TongTien)
+                            <i>(Đã bao gồm VAT nếu có)</i>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            @if (Session["userinfo"] == null)
+            {
+                <button class="cart__submit"
+                        data-bs-toggle="modal" data-bs-target="#modalDangNhap">
+                    Đăng nhập và thanh toán
+                </button>
+            }
+            else
+            {
+                @Html.ActionLink("Tiến hành đặt hàng", "Shipping", "Cart", null, new { @class = "cart__submit" })
+
+            }
+        </div>
+    </section>
+    <!-- /.cart_total -->
+}
