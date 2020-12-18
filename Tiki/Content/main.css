@@ -34,7 +34,7 @@ a {
         color: white;
     }
 
-h4 .title {
+h4.title {
     padding: 30px 0px 10px;
     color: #333333;
     font-size: 18px;
@@ -1569,4 +1569,28 @@ body {
         .shipping__footer a:first-child {
             padding-left: 0;
         }
+        .shipping .modal-dialog{
+            width: 400px;
+        }
+.shipping .modal-body {
+    padding: 24px;
+    color: rgb(36, 36, 36);
+    font-size: 14px;
+    line-height: 2.5;
+}
+.shipping .btn-back-index {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid rgb(27, 168, 255);
+    min-width: 128px;
+    cursor: pointer;
+    text-align: center;
+    color: rgb(27, 168, 255);
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 500;
+}
+    .shipping .btn-back-index:hover {
+        color: rgb(27, 168, 255);
+    }
 /* --------------- // shipping ----------------------*/
