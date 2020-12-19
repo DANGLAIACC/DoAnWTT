@@ -1,0 +1,9 @@
+﻿.login .app-auth-branding {
+    background-image: url(https://frontend.tikicdn.com/_desktop-next/static/img/sprite@2x.png);
+    background-size: 404px;
+    text-align: center;
+    background-position: 0px 0px;
+    width: 90px;
+    height: 60px;
+    display:inline-block;
+}

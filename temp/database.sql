@@ -103,6 +103,12 @@ CREATE TABLE EVALUATE(
   eva_imgs varchar(MAX),
 )
 GO
+
+insert into EMPLOYEE values ('admin','admin', N'Đặng Quốc Lai', '0772480922',N'Thủ Đức, TP. Hồ Chí Minh',0),
+('dqlai','dqlai', N'Đặng Quốc Lai', '0772480928',N'Thủ Đức, TP. Hồ Chí Minh',0),
+('lhlong','lhlong', N'La Hoàng Long', '0772480928',N'Thủ Đức, TP. Hồ Chí Minh',0)
+
+GO
 insert into CUSTOMER values ('admin', 'admin', N'Đặng Quốc Lai', '0772960922', N'606 Quốc lộ 13, P. Hiệp Bình Phước, Q. Thủ Đức, TP. HCM', 1),
     ('vtluan', 'vtluan', N'Văn Tiến Luận', '0772890922', N'606 Quốc lộ 13, P. Hiệp Bình Phước, Q. Thủ Đức, TP. HCM', 1),
     ('tu123', 'tu123', N'Tú Trần', '0772485962', N'606 Quốc lộ 13, P. Hiệp Bình Phước, Q. Thủ Đức, TP. HCM', 0),

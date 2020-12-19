@@ -131,7 +131,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="AUTHOR.cs">
       <DependentUpon>Tiki.tt</DependentUpon>
     </Compile>
@@ -192,6 +192,7 @@
     <Compile Include="ViewModel\BookDetailVM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin\style.css" />
     <Content Include="Content\Admin\svg.css" />
     <Content Include="Content\Admin\chart.css" />
     <Content Include="Content\Admin\portal.css" />
@@ -204,7 +205,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\icomoon.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="img\adDangNhap.png" />
@@ -274,15 +275,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
-    <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Login.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Notifications.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\NotFound.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Orders.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Docs.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Chart.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Setting.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Account.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Notifications.cshtml" />
+    <Content Include="Areas\Admin\Views\User\NotFound.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Orders.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Docs.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Chart.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Setting.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Account.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Book\Detail.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />

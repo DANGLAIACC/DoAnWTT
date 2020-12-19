@@ -33,11 +33,11 @@
                                     <form action="@Url.Action("Login","User")" method="post">
                                         <div class='labelinput'>
                                             <span class="lblInfo">Tên đăng nhập</span>
-                                            @Html.TextBox("cus_usr",null, new { @class = "form-control form-input" })
+                                            @Html.TextBox("cus_usr",null, new { @placeholder="Nhập tên đăng nhập", @class = "form-control form-input" })
                                         </div>
                                         <div class='labelinput'>
                                             <span class="lblInfo">Mật khẩu</span>
-                                            @Html.Password("cus_pwd", null, new { @class = "form-control form-input" })
+                                            @Html.Password("cus_pwd", null, new { @placeholder = "Nhập mật khẩu", @class = "form-control form-input" })
                                         </div>
                                         <span class='my-2'>Quên mật khẩu? Nhấn vào <a href="">đây</a>.</span>
                                         <div class="form-button mt-3">

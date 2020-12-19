@@ -58,25 +58,30 @@
                     </p>
                     <div class="shipping__main">
                         <div class="form-container">
-                            <div class="shipping__item">
-                                <label>Họ tên</label>
-                                <input type="text" name="full_name" placeholder="Nhập họ tên" maxlength="50">
-                            </div>
-                            <div class="shipping__item">
-                                <label>Điện thoại</label>
-                                <input type="text" name="telephone"
-                                       placeholder="Nhập số điện thoại">
-                            </div>
-                            <div class="shipping__item">
-                                <label>Địa chỉ</label>
-                                <input type="text" name="telephone"
-                                       placeholder="Nhập địa chỉ giao">
-                            </div>
-                            <div class="shipping__item">
-                                <button class="btn-finish">
-                                    Đặt hàng
-                                </button>
-                            </div>
+                            <form action="@Url.Action("Shipping","Cart")" method="post">
+                                <div class="shipping__item">
+                                    <label>Họ tên</label>
+                                    @Html.TextBox("cus_urs", ((CUSTOMER) Session["userinfo"]).cus_usr , new { @readonly = "readonly", placeholder = "Nhập họ tên" })
+                                </div>
+                                <div class="shipping__item">
+                                    <label>Điện thoại</label>
+                                    @Html.TextBox("ord_phone", null, new { placeholder = "Nhập số điện thoại" })
+                                </div>
+                                <div class="shipping__item">
+                                    <label>Địa chỉ</label>
+                                    @Html.TextBox("ord_address", null, new { placeholder = "Nhập địa chỉ" })
+                                </div>
+
+                                <div class="shipping__item">
+                                    <label>Chi chú khác</label>
+                                    @Html.TextBox("ord_require",null, new { placeholder = "Ghi chú khác" }) 
+                                </div>
+                                <div class="shipping__item">
+                                    <button class="btn-finish" type="submit">
+                                        Đặt hàng
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -111,7 +116,7 @@
                             Phiên làm việc không đúng hoặc đã hết hạn. <br />
                             Vui lòng đăng nhập lại. <br />
                             <button type="button" class="btn btn-back-index mt-4" data-bs-dismiss="modal">Về trang chủ</button>
-                        </div> 
+                        </div>
                     </div>
                 </div>
 

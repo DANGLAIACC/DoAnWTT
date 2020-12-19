@@ -101,8 +101,22 @@ namespace Tiki.Controllers
 
         public ActionResult Shipping()
         {
-
             return View();
+        }
+        [HttpPost]
+        public ActionResult Shipping(ORDER o)
+        {
+            _db.ORDERS.Add(new ORDER()
+            {
+                cus_urs = o.cus_urs,
+                ord_timeup = DateTime.Now,
+                ord_timedown = DateTime.Now,
+                ord_phone = o.ord_phone,
+                ord_address = o.ord_address,
+                ord_require = o.ord_require
+            });
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Book");
         }
     }
 }

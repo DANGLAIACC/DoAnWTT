@@ -6,8 +6,9 @@ using System.Web.Mvc;
 
 namespace Tiki.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class UserController : Controller
     {
+        TIKIContext db = new TIKIContext();
         // GET: Admin/Home
         public ActionResult Index()
         {
@@ -16,6 +17,21 @@ namespace Tiki.Areas.Admin.Controllers
         public ActionResult Login()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Login(EMPLOYEE e)
+        {
+            var record = (from c in db.EMPLOYEEs
+                          where c.emp_usr == e.emp_usr && c.emp_pwd== e.emp_pwd
+                          select c).FirstOrDefault();
+            if (record != null)
+            {
+                Session["admininfo"] = record;
+                return RedirectToAction("Index", "User",
+                        new { Area = "Admin" });
+            }
+            else 
+                return Redirect(Request.UrlReferrer.ToString()); 
         }
         public ActionResult Notifications()
         {

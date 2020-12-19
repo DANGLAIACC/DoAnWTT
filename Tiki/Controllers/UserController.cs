@@ -22,10 +22,8 @@ namespace Tiki.Controllers
                           where c.cus_usr == d.cus_usr && c.cus_pwd == d.cus_pwd
                           select c).FirstOrDefault();
             if (record != null)
-            {
                 Session["userinfo"] = record;
-            }
-                return Redirect(Request.UrlReferrer.ToString());
+            return Redirect(Request.UrlReferrer.ToString());
         }
     }
 }
