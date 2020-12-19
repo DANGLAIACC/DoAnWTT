@@ -14,7 +14,7 @@ namespace Tiki.Controllers
         {
             return View();
         }
-        private TIKIContext _db = new TIKIContext();
+        private TikiContext _db = new TikiContext();
 
         /// <summary>
         /// Add to cart

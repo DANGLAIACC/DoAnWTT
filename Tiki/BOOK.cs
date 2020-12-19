@@ -26,7 +26,7 @@ namespace Tiki
         public string book_img { get; set; }
         public Nullable<int> book_price { get; set; }
         public Nullable<int> book_sale { get; set; }
-        public DateTime public_date { get; set; }
+        public Nullable<System.DateTime> public_date { get; set; }
         public Nullable<double> width { get; set; }
         public Nullable<double> height { get; set; }
         public Nullable<int> page_number { get; set; }

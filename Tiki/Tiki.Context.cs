@@ -13,10 +13,10 @@ namespace Tiki
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TIKIContext : DbContext
+    public partial class TikiContext : DbContext
     {
-        public TIKIContext()
-            : base("name=TIKIContext")
+        public TikiContext()
+            : base("name=TikiContext")
         {
         }
     

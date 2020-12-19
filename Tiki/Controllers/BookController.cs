@@ -8,7 +8,7 @@ namespace Tiki.Controllers
 {
     public class BookController : Controller
     {
-        private TIKIContext database = new TIKIContext();
+        private TikiContext database = new TikiContext();
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

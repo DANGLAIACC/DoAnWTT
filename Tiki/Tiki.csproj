@@ -241,16 +241,6 @@
     <Content Include="Scripts\Admin\font-awesome.all.min.js" />
     <Content Include="Scripts\Admin\index-charts.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
-    <Content Include="Tiki.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Tiki.edmx</DependentUpon>
-      <LastGenOutput>Tiki.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Tiki.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Tiki.edmx</DependentUpon>
-      <LastGenOutput>Tiki.cs</LastGenOutput>
-    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -298,16 +288,26 @@
     <None Include="packages.config" />
     <Content Include="Views\Book\Detail.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Book\Index.cshtml" />
+    <Content Include="Views\Partial\_ModalLogin.cshtml" />
+    <Content Include="Views\Cart\Shipping.cshtml" />
     <EntityDeploy Include="Tiki.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Tiki.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Tiki.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Tiki.edmx</DependentUpon>
+      <LastGenOutput>Tiki.Context.cs</LastGenOutput>
+    </Content>
     <Content Include="Tiki.edmx.diagram">
       <DependentUpon>Tiki.edmx</DependentUpon>
     </Content>
-    <Content Include="Views\Book\Index.cshtml" />
-    <Content Include="Views\Partial\_ModalLogin.cshtml" />
-    <Content Include="Views\Cart\Shipping.cshtml" />
+    <Content Include="Tiki.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Tiki.edmx</DependentUpon>
+      <LastGenOutput>Tiki.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

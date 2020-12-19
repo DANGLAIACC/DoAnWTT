@@ -8,7 +8,7 @@ namespace Tiki.Areas.Admin.Controllers
 {
     public class UserController : Controller
     {
-        TIKIContext db = new TIKIContext();
+        TikiContext db = new TikiContext();
         // GET: Admin/Home
         public ActionResult Index()
         {

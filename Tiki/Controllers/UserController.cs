@@ -8,7 +8,7 @@ namespace Tiki.Controllers
 {
     public class UserController : Controller
     {
-        private TIKIContext _db = new TIKIContext();
+        private TikiContext _db = new TikiContext();
         // GET: User
         public ActionResult Index()
         {

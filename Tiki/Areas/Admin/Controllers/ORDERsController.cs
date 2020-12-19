@@ -12,7 +12,7 @@ namespace Tiki.Areas.Admin.Controllers
 {
     public class ORDERsController : Controller
     {
-        private TIKIContext db = new TIKIContext();
+        private TikiContext db = new TikiContext();
 
         // GET: Admin/ORDERs
         public ActionResult Index()
