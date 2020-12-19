@@ -3,153 +3,145 @@
 @{
     ViewBag.Title = "Danh sách đơn hàng";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-} 
+}
 @using Tiki.App_Code;
- 
-<div class="app-content pt-3 p-md-3 p-lg-4">
-    <div class="container-xl">
 
-        <div class="row g-3 mb-4 align-items-center justify-content-between">
-            <div class="col-auto">
-                <h1 class="app-page-title mb-0">Danh sách đặt hàng</h1>
-            </div>
-            <div class="col-auto">
-                <div class="page-utilities">
-                    <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+<div class="row g-3 mb-4 align-items-center justify-content-between">
+    <div class="col-auto">
+        <h1 class="app-page-title mb-0">Danh sách đặt hàng</h1>
+    </div>
+    <div class="col-auto">
+        <div class="page-utilities">
+            <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+                <div class="col-auto">
+                    <form class="table-search-form row gx-1 align-items-center mb-0">
                         <div class="col-auto">
-                            <form class="table-search-form row gx-1 align-items-center mb-0">
-                                <div class="col-auto">
-                                    <input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Search">
-                                </div>
-                                <div class="col-auto">
-                                    <button type="submit" class="btn app-btn-secondary">Search</button>
-                                </div>
-                            </form>
-
-                        </div><!--//col-->
-                        <div class="col-auto">
-
-                            <select class="form-select w-auto">
-                                <option selected="" value="option-1">All</option>
-                                <option value="option-2">This week</option>
-                                <option value="option-3">This month</option>
-                                <option value="option-4">Last 3 months</option>
-
-                            </select>
+                            <input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Search">
                         </div>
                         <div class="col-auto">
-                            <a class="btn app-btn-secondary" href="#">
-                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download mr-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"></path>
-                                    <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"></path>
-                                </svg>
-                                Download *.XLSX
-                            </a>
+                            <button type="submit" class="btn app-btn-secondary">Search</button>
                         </div>
-                    </div><!--//row-->
-                </div><!--//table-utilities-->
-            </div><!--//col-auto-->
-        </div><!--//row-->
+                    </form>
+
+                </div><!--//col-->
+                <div class="col-auto">
+
+                    <select class="form-select w-auto">
+                        <option selected="" value="option-1">All</option>
+                        <option value="option-2">This week</option>
+                        <option value="option-3">This month</option>
+                        <option value="option-4">Last 3 months</option>
+
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <a class="btn app-btn-secondary" href="#">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download mr-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"></path>
+                            <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"></path>
+                        </svg>
+                        Download *.XLSX
+                    </a>
+                </div>
+            </div><!--//row-->
+        </div><!--//table-utilities-->
+    </div><!--//col-auto-->
+</div><!--//row-->
 
 
-        <nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
-            @Html.ActionLink("Tất cả", "Index", null, new { @class = "flex-sm-fill text-sm-center nav-link " + GlobalFunction.CheckActive("action","index") })
-            @Html.ActionLink("Đang đợi", "Pending", null, new { @class = "flex-sm-fill text-sm-center nav-link" + GlobalFunction.CheckActive("action", "pending") })
-            @Html.ActionLink("Thành công", "Success", null, new { @class = "flex-sm-fill text-sm-center nav-link" + GlobalFunction.CheckActive("action", "success") })
-            @Html.ActionLink("Đơn hàng bị hủy", "Cancel", null, new { @class = "flex-sm-fill text-sm-center nav-link" + GlobalFunction.CheckActive("action", "cancel") })
-        </nav>
+<nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
+    @Html.ActionLink("Tất cả", "Index", null, new { @class = "flex-sm-fill text-sm-center nav-link " + GlobalFunction.CheckActive("action", "index") })
+    @Html.ActionLink("Đang đợi", "Pending", null, new { @class = "flex-sm-fill text-sm-center nav-link" + GlobalFunction.CheckActive("action", "pending") })
+    @Html.ActionLink("Thành công", "Success", null, new { @class = "flex-sm-fill text-sm-center nav-link" + GlobalFunction.CheckActive("action", "success") })
+    @Html.ActionLink("Đơn hàng bị hủy", "Cancel", null, new { @class = "flex-sm-fill text-sm-center nav-link" + GlobalFunction.CheckActive("action", "cancel") })
+</nav>
 
 
-        <div class="tab-content" id="orders-table-tab-content">
-            <div class="tab-pane fade active show" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
-                <div class="app-card app-card-orders-table shadow-sm mb-5">
-                    <div class="app-card-body">
-                        <div class="table-responsive">
-                            <table class="table app-table-hover mb-0 text-left">
-                                <thead>
-                                    <tr>
-                                        <th class="cell">Mã đơn hàng</th>
-                                        <th class="cell">Tên khách hàng</th>
-                                        <th class="cell">Địa chỉ giao</th>
-                                        <th class="cell">Ngày đặt</th>
-                                        <th class="cell">Trạng thái</th>
-                                        <th class="cell">Tổng cộng</th>
-                                        <th class="cell"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+<div class="tab-content" id="orders-table-tab-content">
+    <div class="tab-pane fade active show" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
+        <div class="app-card app-card-orders-table shadow-sm mb-5">
+            <div class="app-card-body">
+                <div class="table-responsive">
+                    <table class="table app-table-hover mb-0 text-left">
+                        <thead>
+                            <tr>
+                                <th class="cell">Mã đơn hàng</th>
+                                <th class="cell">Tên khách hàng</th>
+                                <th class="cell">Địa chỉ giao</th>
+                                <th class="cell">Ngày đặt</th>
+                                <th class="cell">Trạng thái</th>
+                                <th class="cell">Tổng cộng</th>
+                                <th class="cell"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                                    @foreach (var item in Model)
-                                    {
-                                    <tr>
-                                        <td class="cell">
-                                            #@Html.DisplayFor(modelItem => item.ord_id)
-                                        </td>
-                                        <td class="cell">
-                                            @Html.DisplayFor(modelItem => item.CUSTOMER.cus_name)
-                                        </td>
-                                        <td class="cell">
-                                            <span class="truncate">
-                                                @item.ord_address
-                                            </span>
-                                        </td>
-                                        <td class="cell">
-                                            <span>@item.ord_timeup.ToString("dd MMM yyyy")</span>
-                                            <span class="note">@item.ord_timeup.ToString("hh:mm tt")</span>
-                                        </td>
-                                        <td class="cell">
-                                            @switch (item.ord_status)
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="cell">
+                                        #@Html.DisplayFor(modelItem => item.ord_id)
+                                    </td>
+                                    <td class="cell">
+                                        @Html.DisplayFor(modelItem => item.CUSTOMER.cus_name)
+                                    </td>
+                                    <td class="cell">
+                                        <span class="truncate">
+                                            @item.ord_address
+                                        </span>
+                                    </td>
+                                    <td class="cell">
+                                        <span>@item.ord_timeup.ToString("dd MMM yyyy")</span>
+                                        <span class="note">@item.ord_timeup.ToString("hh:mm tt")</span>
+                                    </td>
+                                    <td class="cell">
+                                        @switch (item.ord_status)
+                                        {
+                                            case 0: // chưa duyệt
+                                                <span class="badge bg-warning">Pending</span>
+                                                break;
+                                            case 1: // đã thanh toán
+                                                <span class="badge bg-success">Paid</span>
+                                                break;
+                                            default: // đã hủy
+                                                <span class="badge bg-danger">Cancelled</span>
+                                                break;
+                                        }
+                                    </td>
+                                    <td class="cell">
+                                        @{
+                                            int tong = 0;
+                                            foreach (var a in item.ORDER_DETAIL)
                                             {
-                                                case 0: // chưa duyệt
-                                                    <span class="badge bg-warning">Pending</span>
-                                                    break;
-                                                case 1: // đã thanh toán
-                                                    <span class="badge bg-success">Paid</span>
-                                                    break;
-                                                default: // đã hủy
-                                                    <span class="badge bg-danger">Cancelled</span>
-                                                    break;
+                                                tong += a.ord_quantity * a.ord_price;
                                             }
-                                        </td>
-                                        <td class="cell">
-                                            @{
-                                                int tong = 0;
-                                                foreach (var a in item.ORDER_DETAIL)
-                                                {
-                                                    tong += a.ord_quantity * a.ord_price;
-                                                }
-                                                @Tiki.App_Code.GlobalFunction.FormatPrice(tong)
-                                            }
-                                        </td>
-                                        <td class="cell">
-                                            @Html.ActionLink("Chi tiết", "Details", new { id = item.ord_id }, new { @class = "btn-sm app-btn-secondary" })
-                                        </td>
-                                    </tr>
-                                    } 
-                                </tbody>
-                            </table>
-                        </div><!--//table-responsive-->
+                                            @Tiki.App_Code.GlobalFunction.FormatPrice(tong)
+                                        }
+                                    </td>
+                                    <td class="cell">
+                                        @Html.ActionLink("Chi tiết", "Details", new { id = item.ord_id }, new { @class = "btn-sm app-btn-secondary" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div><!--//table-responsive-->
 
-                    </div><!--//app-card-body-->
-                </div><!--//app-card-->
-                <nav class="app-pagination">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav><!--//app-pagination-->
+            </div><!--//app-card-body-->
+        </div><!--//app-card-->
+        <nav class="app-pagination">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav><!--//app-pagination-->
 
-            </div><!--//tab-pane-->
-        </div><!--//tab-content-->
-
-
-
-    </div><!--//container-fluid-->
-</div>
+    </div><!--//tab-pane-->
+</div><!--//tab-content-->

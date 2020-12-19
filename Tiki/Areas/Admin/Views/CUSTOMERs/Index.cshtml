@@ -5,54 +5,111 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="row g-3 mb-4 align-items-center justify-content-between">
+    <div class="col-auto">
+        <h1 class="app-page-title mb-0">Danh sách khách hàng</h1>
+    </div>
+    <div class="col-auto">
+        <div class="page-utilities">
+            <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+                <div class="col-auto">
+                    <form class="table-search-form row gx-1 align-items-center mb-0">
+                        <div class="col-auto">
+                            <input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Search">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn app-btn-secondary">Search</button>
+                        </div>
+                    </form>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.cus_pwd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cus_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cus_phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cus_address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cus_gender)
-        </th>
-        <th></th>
-    </tr>
+                </div><!--//col-->
+            </div><!--//row-->
+        </div><!--//table-utilities-->
+    </div><!--//col-auto-->
+</div><!--//row-->
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.cus_pwd)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cus_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cus_phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cus_address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cus_gender)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.cus_usr }) |
-            @Html.ActionLink("Details", "Details", new { id=item.cus_usr }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.cus_usr })
-        </td>
-    </tr>
-}
+<div class="tab-content" id="orders-table-tab-content">
+    <div class="tab-pane fade active show" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
+        <div class="app-card app-card-orders-table shadow-sm mb-5">
+            <div class="app-card-body">
+                <div class="table-responsive">
+                    <table class="table app-table-hover mb-0 text-left">
+                        <thead>
+                            <tr>
+                                <th class="cell">Mã khách hàng</th>
+                                <th class="cell">Tên khách hàng</th>
+                                <th class="cell">Điện thoại</th>
+                                <th class="cell">Địa chỉ</th>
+                                <th class="cell">Giới tính</th>
+                                <th class="cell"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-</table>
+                            @foreach (var item in Model)
+                            {
+                                <tr onclick="usr_click('@item.cus_usr', '@item.cus_pwd', '@item.cus_name', '@item.cus_phone', '@item.cus_address', '@item.cus_gender.ToString()')" style="cursor:pointer;">
+                                    <td class="cell">
+                                        <span>
+                                            @Html.DisplayFor(modelItem => item.cus_usr)
+                                        </span>
+                                    </td>
+                                    <td class="cell">
+                                        @Html.DisplayFor(modelItem => item.cus_name)
+                                    </td>
+                                    <td class="cell">
+                                        @Html.DisplayFor(modelItem => item.cus_phone)
+                                    </td>
+                                    <td class="cell">
+                                        <span class="truncate">
+                                            @item.cus_address
+                                        </span>
+                                    </td>
+                                    <td class="cell">
+                                        @(item.cus_gender ? "Nam" : "Nữ")
+                                    </td>
+                                    <td class="cell">
+                                        @Html.ActionLink("Xóa", "Delete", new { cus_usr = item.cus_usr }, new { @class = "btn-sm app-btn-secondary text-danger" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div><!--//table-responsive-->
+
+            </div><!--//app-card-body-->
+        </div><!--//app-card-->
+        <nav class="app-pagination">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav><!--//app-pagination-->
+
+    </div><!--//tab-pane-->
+</div><!--//tab-content-->
+
+@Html.Partial("~/Areas/Admin/Views/Shared/Customer/_ModalEditCustomer.cshtml")
+
+<script type="text/javascript">
+    function usr_click(cus_usr, cus_pwd, cus_name, cus_phone, cus_address, cus_gender) {
+        modalEditCustomer = document.getElementById('modalEditCustomer');
+
+        modalEditCustomer.addEventListener('show.bs.modal', function (i) {
+            modalEditCustomer.querySelector('#cus_usr').value = cus_usr;
+            modalEditCustomer.querySelector('#cus_pwd').value = cus_pwd;
+            modalEditCustomer.querySelector('#cus_name').value = cus_name;
+            modalEditCustomer.querySelector('#cus_phone').value = cus_phone;
+            modalEditCustomer.querySelector('#cus_address').value = cus_address;
+            modalEditCustomer.querySelector('#isFemale').checked = cus_gender == 'False';
+        })
+        new bootstrap.Modal(modalEditCustomer).show();
+    }
+</script>

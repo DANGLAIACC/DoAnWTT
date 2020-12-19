@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-@using Tiki.App_Code; 
+@using Tiki.App_Code;
 <html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
 <head>
     <title>@ViewBag.Title - Tiki</title>
@@ -188,7 +188,7 @@
 
                         <li class="nav-item">
 
-                             <a class="nav-link @GlobalFunction.CheckActive("controller", "orders")"
+                            <a class="nav-link @GlobalFunction.CheckActive("controller", "orders")"
                                href="@Url.Action("Index", "orders")">
 
                                 <span class="nav-icon">
@@ -216,7 +216,7 @@
                             </a><!--//nav-link-->
                         </li><!--//nav-item-->
                         <li class="nav-item">
-                             <a class="nav-link @GlobalFunction.CheckActive("controller", "customer")"
+                            <a class="nav-link @GlobalFunction.CheckActive("controller", "customers")"
                                href="@Url.Action("Index", "customers")">
                                 <span class="nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -342,7 +342,15 @@
     </header><!--//app-header-->
 
     <div class="app-wrapper">
-        @RenderBody();
+
+        <div class="app-content pt-3 p-md-3 p-lg-4">
+            <div class="container-xl">
+
+                @RenderBody();
+
+            </div>
+        </div>
+
     </div><!--//app-wrapper-->
     <!-- Javascript -->
     <script src="~/Scripts/bootstrap.bundle.min.js"></script>
@@ -354,7 +362,7 @@
     <!-- Page Specific JS -->
     <script src="~/Scripts/Admin/app.js"></script>
 
-    @RenderSection("body_scripts", false);
+    @RenderSection("body_scripts", false)
 
 </body>
 </html>

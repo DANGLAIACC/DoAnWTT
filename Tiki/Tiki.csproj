@@ -291,6 +291,7 @@
     <Content Include="Areas\Admin\Views\CUSTOMERs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\CUSTOMERs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\CUSTOMERs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Customer\_ModalEditCustomer.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Book\Detail.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />

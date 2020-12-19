@@ -20,3 +20,11 @@
 .app-card-orders-table .table .cell {
     color: #292d34;
 }
+
+.modalEditCustomer span.lblInfo{
+ margin:10px 0 4px;
+ display: inline-block;
+}
+.modalEditCustomer span.lblInfo:first-child {
+    margin-top: 0;
+}

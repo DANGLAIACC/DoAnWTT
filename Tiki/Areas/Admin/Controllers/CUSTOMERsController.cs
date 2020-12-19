@@ -41,23 +41,6 @@ namespace Tiki.Areas.Admin.Controllers
             return View();
         }
 
-        // POST: Admin/CUSTOMERs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "cus_usr,cus_pwd,cus_name,cus_phone,cus_address,cus_gender")] CUSTOMER cUSTOMER)
-        {
-            if (ModelState.IsValid)
-            {
-                db.CUSTOMERs.Add(cUSTOMER);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(cUSTOMER);
-        }
-
         // GET: Admin/CUSTOMERs/Edit/5
         public ActionResult Edit(string id)
         {

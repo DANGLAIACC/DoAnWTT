@@ -26,7 +26,7 @@ namespace Tiki
         public string cus_name { get; set; }
         public string cus_phone { get; set; }
         public string cus_address { get; set; }
-        public Nullable<bool> cus_gender { get; set; }
+        public bool cus_gender { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EVALUATE> EVALUATEs { get; set; }
