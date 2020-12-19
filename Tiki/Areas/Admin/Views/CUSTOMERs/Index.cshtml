@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Tiki.CUSTOMER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cus_pwd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cus_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cus_phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cus_address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cus_gender)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cus_pwd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cus_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cus_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cus_address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cus_gender)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.cus_usr }) |
+            @Html.ActionLink("Details", "Details", new { id=item.cus_usr }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cus_usr })
+        </td>
+    </tr>
+}
+
+</table>

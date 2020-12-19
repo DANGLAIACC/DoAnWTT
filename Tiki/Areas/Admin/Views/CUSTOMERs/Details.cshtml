@@ -1,0 +1,59 @@
+﻿@model Tiki.CUSTOMER
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CUSTOMER</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cus_pwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cus_pwd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cus_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cus_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cus_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cus_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cus_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cus_address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cus_gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cus_gender)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cus_usr }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

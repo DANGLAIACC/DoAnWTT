@@ -131,6 +131,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BOOKsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CUSTOMERsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ORDERsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="AUTHOR.cs">
@@ -285,6 +286,11 @@
     <Content Include="Areas\Admin\Views\ORDERs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ORDERs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ORDERs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CUSTOMERs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CUSTOMERs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CUSTOMERs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\CUSTOMERs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CUSTOMERs\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Book\Detail.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />

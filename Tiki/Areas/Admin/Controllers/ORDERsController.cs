@@ -20,6 +20,30 @@ namespace Tiki.Areas.Admin.Controllers
             var oRDERS = db.ORDERS.Include(o => o.CUSTOMER);
             return View(oRDERS.ToList());
         }
+        // GET: Admin/ORDERs/pending
+        // 0 là đang đợi duyệt
+        public ActionResult Pending()
+        {
+            var oRDERS = db.ORDERS.Include(o => o.CUSTOMER).Where(m=> m.ord_status==0);
+            return View("Index",oRDERS.ToList());
+        }
+
+
+        // GET: Admin/ORDERs/pending
+        // 1 là đã xong
+        public ActionResult Success()
+        {
+            var oRDERS = db.ORDERS.Include(o => o.CUSTOMER).Where(m => m.ord_status == 1);
+            return View("Index", oRDERS.ToList());
+        }
+
+        // GET: Admin/ORDERs/pending
+        // 2 là đã hủy
+        public ActionResult Cancel()
+        {
+            var oRDERS = db.ORDERS.Include(o => o.CUSTOMER).Where(m => m.ord_status == 2);
+            return View("Index", oRDERS.ToList());
+        }
 
         // GET: Admin/ORDERs/Details/5
         public ActionResult Details(int? id)
@@ -43,9 +67,7 @@ namespace Tiki.Areas.Admin.Controllers
             return View();
         }
 
-        // POST: Admin/ORDERs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Admin/ORDERs/Create 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ord_id,cus_urs,ord_timeup,ord_timedown,ord_address,ord_phone,ord_require")] ORDER oRDER)
@@ -77,9 +99,7 @@ namespace Tiki.Areas.Admin.Controllers
             return View(oRDER);
         }
 
-        // POST: Admin/ORDERs/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Admin/ORDERs/Edit/5 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ord_id,cus_urs,ord_timeup,ord_timedown,ord_address,ord_phone,ord_require")] ORDER oRDER)

@@ -106,7 +106,7 @@ namespace Tiki.Controllers
         [HttpPost]
         public ActionResult Shipping(ORDER o)
         {
-            _db.ORDERS.Add(new ORDER()
+            ORDER o1 = new ORDER()
             {
                 cus_urs = o.cus_urs,
                 ord_timeup = DateTime.Now,
@@ -114,8 +114,26 @@ namespace Tiki.Controllers
                 ord_phone = o.ord_phone,
                 ord_address = o.ord_address,
                 ord_require = o.ord_require
-            });
+            };
+
+            _db.ORDERS.Add(o1);
             _db.SaveChanges();
+            
+            int ord_id1 = o1.ord_id;
+
+            List<CartModel> cart = (List<CartModel>)Session["cart"];
+            foreach (var c in cart)
+            {
+                _db.ORDER_DETAIL.Add(new ORDER_DETAIL()
+                {
+                    ord_id = ord_id1,
+                    book_id = c.b.book_id,
+                    ord_price = c.b.book_sale,
+                    ord_quantity = c.Quantity,
+                });
+            }
+            _db.SaveChanges();
+            Session["cart"] = null;
             return RedirectToAction("Index", "Book");
         }
     }

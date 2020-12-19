@@ -16,3 +16,7 @@
     position: unset;
     margin-right: 10px;
 }
+
+.app-card-orders-table .table .cell {
+    color: #292d34;
+}

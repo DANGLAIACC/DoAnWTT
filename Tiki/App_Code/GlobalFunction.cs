@@ -53,11 +53,25 @@ namespace Tiki.App_Code
         /// </summary>
         /// <param name="fullname"></param>
         /// <returns></returns>
-
         public static string getOnlyName(string fullname)
         {
             int i = fullname.LastIndexOf(' ');
             return (i == -1) ? fullname : fullname.Substring(i + 1);
+        }
+        /// <summary>
+        /// Kiểm tra controller, action set active
+        /// </summary>
+        /// <param name="text">controller hoặc action</param>
+        /// <param name="value">giá trị đem so sánh</param>
+        /// <returns>active</returns>
+        public static string CheckActive(string text, string value)
+        {
+            var httpContext = new HttpContextWrapper(HttpContext.Current);
+            var routeData = System.Web.Routing.RouteTable.Routes.GetRouteData(httpContext);
+
+            return routeData.Values[text].ToString().ToLower() == value
+                ? " active"
+                : "";
         }
     }
 }

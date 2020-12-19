@@ -22,7 +22,7 @@ namespace Tiki
     
         public int ord_id { get; set; }
         public string cus_urs { get; set; }
-        public Nullable<System.DateTime> ord_timeup { get; set; }
+        public DateTime ord_timeup { get; set; }
         public Nullable<System.DateTime> ord_timedown { get; set; }
         public string ord_address { get; set; }
         public string ord_phone { get; set; }
