@@ -1,0 +1,147 @@
+﻿@model Tiki.BOOK
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BOOK</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.book_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_img)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_img)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_sale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_sale)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.width)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.width)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.page_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.page_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cover_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cover_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.article)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.article)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.translator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.translator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTHOR.aut_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTHOR.aut_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CATEGORY.cat_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CATEGORY.cat_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COMPANY.com_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COMPANY.com_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PUBLISHER.pub_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PUBLISHER.pub_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SHOP.shop_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SHOP.shop_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.book_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

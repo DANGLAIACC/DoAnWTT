@@ -1,0 +1,67 @@
+﻿@model Tiki.ORDER
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ORDER</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ord_timeup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ord_timeup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ord_timedown)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ord_timedown)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ord_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ord_address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ord_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ord_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ord_require)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ord_require)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CUSTOMER.cus_pwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUSTOMER.cus_pwd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ord_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

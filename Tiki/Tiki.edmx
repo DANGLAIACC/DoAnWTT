@@ -104,6 +104,7 @@
           <Property Name="ord_address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="ord_phone" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="ord_require" Type="nvarchar" MaxLength="100" />
+          <Property Name="ord_status" Type="int" MaxLength="100" />
         </EntityType>
         <EntityType Name="PUBLISHER">
           <Key>
@@ -715,6 +716,7 @@
                 <ScalarProperty Name="ord_address" ColumnName="ord_address" />
                 <ScalarProperty Name="ord_phone" ColumnName="ord_phone" />
                 <ScalarProperty Name="ord_require" ColumnName="ord_require" />
+                <ScalarProperty Name="ord_status" ColumnName="ord_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

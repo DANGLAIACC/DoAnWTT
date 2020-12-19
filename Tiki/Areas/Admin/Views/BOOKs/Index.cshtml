@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Tiki.BOOK>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.book_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book_img)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book_sale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.public_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.width)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.page_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cover_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.article)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.translator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AUTHOR.aut_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CATEGORY.cat_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COMPANY.com_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PUBLISHER.pub_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SHOP.shop_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_img)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_sale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.public_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.width)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.height)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.page_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cover_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.article)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.translator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AUTHOR.aut_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CATEGORY.cat_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COMPANY.com_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PUBLISHER.pub_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SHOP.shop_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.book_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.book_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.book_id })
+        </td>
+    </tr>
+}
+
+</table>

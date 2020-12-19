@@ -7,3 +7,12 @@
     height: 60px;
     display:inline-block;
 }
+.app-sidepanel .app-nav .nav-item .nav-link{
+    padding-left:14px;
+    display: flex;
+    align-items: center;
+}
+.app-sidepanel .app-nav .nav-item .nav-link span.nav-icon {
+    position: unset;
+    margin-right: 10px;
+}

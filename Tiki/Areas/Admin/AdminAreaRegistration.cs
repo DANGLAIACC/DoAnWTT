@@ -18,7 +18,7 @@ namespace Tiki.Areas.Admin
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
                 new { controller = "User",action = "Login", id = UrlParameter.Optional }
-            );
+            ); 
         }
     }
 }

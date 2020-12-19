@@ -81,7 +81,8 @@ CREATE TABLE ORDERS(
   ord_timedown datetime,
   ord_address nvarchar(100) not null,
   ord_phone char(10) not null,
-  ord_require nvarchar(100)
+  ord_require nvarchar(100),
+  ord_status int
 )
 GO 
 CREATE TABLE ORDER_DETAIL(

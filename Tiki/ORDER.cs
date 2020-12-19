@@ -27,6 +27,7 @@ namespace Tiki
         public string ord_address { get; set; }
         public string ord_phone { get; set; }
         public string ord_require { get; set; }
+        public string ord_status { get; set; }
     
         public virtual CUSTOMER CUSTOMER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
