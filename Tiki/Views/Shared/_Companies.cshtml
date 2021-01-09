@@ -1,0 +1,14 @@
+﻿@model IEnumerable<COMPANY>
+@using Tiki.App_Code
+
+<div class="block">
+    <h4 class="title">Công ty phát hành</h4>
+    <div class="list collapsed">
+        @foreach (var item in Model)
+        {
+            <a class="item item--publisher_vn "
+               href="/cong-ty/@item.com_id/@GlobalFunction.Convert2Slug(item.com_name)">@item.com_name</a>
+        }
+    </div>
+
+</div>

@@ -14,11 +14,22 @@ namespace Tiki
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "GetBooksByCompany",
+                url: "cong-ty/{com_id}/{temp}",
+                defaults: new { controller = "Book", action = "GetBooksByCompany", com_id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                 name: "GetBooksByAuthor",
+                 url: " tac-gia/{aut_id}",
+                 defaults: new { controller = "Book", action = "GetBooksByAuthor" }
+             );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{book_id}",
                 defaults: new { controller = "Book", action = "Index", book_id = UrlParameter.Optional },
-                new string[] {"Tiki.Controllers"} 
+                new string[] { "Tiki.Controllers" }
             );
+
         }
     }
 }

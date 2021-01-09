@@ -1,0 +1,14 @@
+﻿@model IEnumerable<AUTHOR>
+@using Tiki.App_Code;
+<div class="block">
+    <h4 class="title">Tác giả</h4>
+    <div class="list collapsed">
+        @foreach (var item in Model)
+        {
+            <a class="item item--author "
+               href="/tac-gia/@item.aut_id/@GlobalFunction.Convert2Slug(item.aut_name)">
+                @item.aut_name
+            </a>
+        } 
+    </div>
+</div>
