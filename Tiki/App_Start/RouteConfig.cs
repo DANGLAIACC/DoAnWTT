@@ -20,8 +20,8 @@ namespace Tiki
             );
             routes.MapRoute(
                  name: "GetBooksByAuthor",
-                 url: " tac-gia/{aut_id}",
-                 defaults: new { controller = "Book", action = "GetBooksByAuthor" }
+                 url: "tac-gia/{aut_id}/{temp}",
+                 defaults: new { controller = "Book", action = "GetBooksByAuthor", aut_id = UrlParameter.Optional }
              );
             routes.MapRoute(
                 name: "Default",

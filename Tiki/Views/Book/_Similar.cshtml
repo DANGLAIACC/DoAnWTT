@@ -1,0 +1,32 @@
+﻿@model List<BOOK>
+
+@using Tiki.App_Code;
+
+<h4 class="title">SẢN PHẨM TƯƠNG TỰ</h4>
+<section class="similar">
+    @foreach (var i in Model)
+    {
+        <a href="@Url.Action("/Detail/" + i.book_id)">
+            <div class="similar__item">
+                <div class="text-center">
+                    <img src="@string.Format("https://salt.tikicdn.com/cache/280x280/ts/product/{0}.jpg",i.book_img)"
+                         alt="@i.book_name">
+                </div>
+                <p class="similar__item__name">@i.book_name</p>
+                <div>
+                    <p class='d-inline similar__item__stars'>
+                        @Html.Raw(GlobalFunction.RenderStarByListEva(i.EVALUATEs))
+                        <span class="number">(@i.EVALUATEs.Count đánh giá)</span>
+                    </p>
+                </div>
+                <p class="price">
+                    @GlobalFunction.FormatPrice(i.book_sale)
+                    <span class="percent ">-@Math.Ceiling((decimal)(1 - 1.0 * i.book_sale / i.book_price) * 100)%</span>
+                    <span class="original ">@GlobalFunction.FormatPrice(i.book_price)</span>
+                </p>
+            </div>
+        </a>
+        <!-- /.similar__item-->
+    }
+</section>
+<!-- /.similar -->

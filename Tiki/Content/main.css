@@ -11,7 +11,9 @@ a {
 * {
     font-family: Roboto, Helvetica, Arial, sans-serif;
 }
-
+h1.title {
+    font-size: 22px;
+}
 .cus-border-right::after {
     display: inline-block;
     content: "";

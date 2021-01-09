@@ -29,8 +29,7 @@ namespace Tiki.Controllers
         public ActionResult GetBooksByCompany(int com_id)
         {
             var record = database.COMPANies.Where(c => c.com_id == com_id).FirstOrDefault();
-            ViewBag.Title = "Sách của công ty "+record.com_name;
-
+            ViewBag.Title = "Sách của công ty "+record.com_name; 
             return View("Index", database.BOOKs.Include("EVALUATEs").Where(b => b.com_id == com_id).ToList());
         }
         public ActionResult GetBooksByAuthor(int aut_id)
@@ -47,6 +46,10 @@ namespace Tiki.Controllers
         public ActionResult GetAuthors()
         {
             return PartialView("_Authors", database.AUTHORs.OrderBy(x => x.aut_name));
+        }
+        public ActionResult GetRandom5BookSimilar()
+        {
+            return PartialView("_Similar", database.BOOKs.Include("EVALUATEs").OrderBy(x=>Guid.NewGuid()).Take(5).ToList());
         }
 
         public ActionResult Detail(int? book_id)

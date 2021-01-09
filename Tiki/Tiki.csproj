@@ -147,7 +147,7 @@
       <DependentUpon>Tiki.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AuthorController.cs" />
-    <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Views\Book\BookController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="CUSTOMER.cs">
@@ -315,8 +315,9 @@
       <DependentUpon>Tiki.edmx</DependentUpon>
       <LastGenOutput>Tiki.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Shared\_Companies.cshtml" />
-    <Content Include="Views\Shared\_Authors.cshtml" />
+    <Content Include="Views\Book\_Companies.cshtml" />
+    <Content Include="Views\Book\_Authors.cshtml" />
+    <Content Include="Views\Book\_Similar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -6,6 +6,7 @@
     int[] arrRate = { 0, 0, 0, 0, 0 }; // 5*, 4*, 3*, 2*, 1*
 
 }
+@using Tiki.App_Code
 @functions{
     public string CountAvg(ICollection<EVALUATE> lst, int[] arrRate)
     {
@@ -20,7 +21,7 @@
 
     public string RenderDetail(string text, string value)
     {
-        return (value != "") ? string.Format("<li>{0}</li><li>{1}</li>",text,value) : "";
+        return (value != "") ? string.Format("<li>{0}</li><li>{1}</li>", text, value) : "";
     }
 }
 @model BOOK
@@ -40,7 +41,9 @@
                 <div class="brand-and-author cus-border-right d-inline">
                     <h6>
                         Tác giả:
-                        @Html.ActionLink(@Model.AUTHOR.aut_name,"Index","Author",new { aut_id = Model.aut_id},null)
+                        <a href="/tac-gia/@Model.aut_id/@GlobalFunction.Convert2Slug(Model.AUTHOR.aut_name)">
+                            @Model.AUTHOR.aut_name
+                        </a>
                     </h6>
                 </div>
                 <div class="bestseller d-inline">
@@ -109,7 +112,8 @@
                 <div class="augment"></div>
             </div>
             <!-- /.book__quantity -->
-            @Html.ActionLink("Mua ngay", "Add", "Cart",new { book_id = Model.book_id}, new {
+            @Html.ActionLink("Mua ngay", "Add", "Cart", new { book_id = Model.book_id }, new
+            {
            @class = "btn btn-add-to-cart"
        })
         </div>
@@ -171,142 +175,14 @@
 
 </section>
 <!-- /.book -->
-
-<h4 class="title">SẢN PHẨM TƯƠNG TỰ</h4>
-<section class="similar">
-
-    <div class="similar__item">
-        <div class="text-center">
-            <img src="https://salt.tikicdn.com/cache/280x280/ts/product/a0/73/4f/92af6309562efb8d90602ab2efdf42b3.jpg"
-                 alt="Tên sách item">
-        </div>
-        <p class="similar__item__name">Kiên trì ắc được đền đáp (Tái bản)</p>
-        <div>
-            <p class='d-inline similar__item__stars'>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <a class="number">(386 đánh giá)</a>
-            </p>
-        </div>
-        <p class="price">
-            39.000 ₫
-            <span class="percent ">-40%</span>
-            <span class="original ">65.000 ₫</span>
-        </p>
-    </div>
-    <!-- /.similar__item-->
-
-
-    <div class="similar__item">
-        <div class="text-center">
-            <img src="https://salt.tikicdn.com/cache/280x280/ts/product/a0/73/4f/92af6309562efb8d90602ab2efdf42b3.jpg"
-                 alt="Tên sách item">
-        </div>
-        <p class="similar__item__name">Kiên trì ắc được đền đáp (Tái bản)</p>
-        <div>
-            <p class='d-inline similar__item__stars'>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <a class="number">(386 đánh giá)</a>
-            </p>
-        </div>
-        <p class="price">
-            39.000 ₫
-            <span class="percent ">-40%</span>
-            <span class="original ">65.000 ₫</span>
-        </p>
-    </div>
-    <!-- /.similar__item-->
-
-    <div class="similar__item">
-        <div class="text-center">
-            <img src="https://salt.tikicdn.com/cache/280x280/ts/product/a0/73/4f/92af6309562efb8d90602ab2efdf42b3.jpg"
-                 alt="Tên sách item">
-        </div>
-        <p class="similar__item__name">Kiên trì ắc được đền đáp (Tái bản)</p>
-        <div>
-            <p class='d-inline similar__item__stars'>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <a class="number">(386 đánh giá)</a>
-            </p>
-        </div>
-        <p class="price">
-            39.000 ₫
-            <span class="percent ">-40%</span>
-            <span class="original ">65.000 ₫</span>
-        </p>
-    </div>
-    <!-- /.similar__item-->
-
-    <div class="similar__item">
-        <div class="text-center">
-            <img src="https://salt.tikicdn.com/cache/280x280/ts/product/a0/73/4f/92af6309562efb8d90602ab2efdf42b3.jpg"
-                 alt="Tên sách item">
-        </div>
-        <p class="similar__item__name">Kiên trì ắc được đền đáp (Tái bản)</p>
-        <div>
-            <p class='d-inline similar__item__stars'>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <a class="number">(386 đánh giá)</a>
-            </p>
-        </div>
-        <p class="price">
-            39.000 ₫
-            <span class="percent ">-40%</span>
-            <span class="original ">65.000 ₫</span>
-        </p>
-    </div>
-    <!-- /.similar__item-->
-
-    <div class="similar__item">
-        <div class="text-center">
-            <img src="https://salt.tikicdn.com/cache/280x280/ts/product/a0/73/4f/92af6309562efb8d90602ab2efdf42b3.jpg"
-                 alt="Tên sách item">
-        </div>
-        <p class="similar__item__name">Kiên trì ắc được đền đáp (Tái bản)</p>
-        <div>
-            <p class='d-inline similar__item__stars'>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <i class="icomoon icomoon-star"></i>
-                <a class="number">(386 đánh giá)</a>
-            </p>
-        </div>
-        <p class="price">
-            39.000 ₫
-            <span class="percent ">-40%</span>
-            <span class="original ">65.000 ₫</span>
-        </p>
-    </div>
-    <!-- /.similar__item-->
-
-
-
-</section>
-<!-- /.similar -->
+@Html.Action("GetRandom5BookSimilar", "Book")
 
 <h4 class="title">THÔNG TIN CHI TIẾT</h4>
 <section class="detail">
     <ul class="list-unstyled">
         @Html.Raw(RenderDetail("Công ty phát hành", Model.COMPANY.com_name))
-        @Html.Raw(RenderDetail("Ngày xuất bản", Model.public_date.Month+" - "+Model.public_date.Year))
-        @Html.Raw(RenderDetail("Kích thước", Model.width + "cm x " + Model.height+"cm"))
+        @Html.Raw(RenderDetail("Ngày xuất bản", Model.public_date.Month + " - " + Model.public_date.Year))
+        @Html.Raw(RenderDetail("Kích thước", Model.width + "cm x " + Model.height + "cm"))
         @Html.Raw(RenderDetail("Dịch Giả", Model.translator))
         @Html.Raw(RenderDetail("Loại bìa", Model.cover_type))
         @Html.Raw(RenderDetail("Số trang", Model.page_number.ToString()))
