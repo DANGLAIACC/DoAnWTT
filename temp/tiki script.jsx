@@ -43,6 +43,10 @@ function setBookId(bookId) {
   localStorage.setItem("bookId", bookId);
 }
 
+function giamBookId() {
+  var bookId = +localStorage.getItem("bookId");
+  localStorage.setItem("bookId", --bookId);
+}
 ////////////////////// end function /////////////////
 
 function getAll() {
@@ -229,12 +233,11 @@ function getevaluate() {
       });
     }
     console.warn("line 210 - bookId: ", bookId);
-    results += `('${
-      arrUsername[i]
-    }', ${bookId}, '${date}', N'${eva_title}', N'${eva_content}', ${rate}, '${eva_imgs.slice(
-      0,
-      -1
-    )}'),`;
+    results += `('${arrUsername[i]
+      }', ${bookId}, '${date}', N'${eva_title}', N'${eva_content}', ${rate}, '${eva_imgs.slice(
+        0,
+        -1
+      )}'),`;
   }
   var strEnd = "insert into evaluate values " + results.slice(0, -1) + ";";
   setBookId(+bookId + 1);
@@ -265,7 +268,7 @@ https://salt.tikicdn.com/cache/w444/ts/product/b4/eb/ed/e3f867f1cf443888ee69ccba
  */
 
 /*
- 
+
 exec spInsertBook
 @book_name = N'${book_name}',
 @book_img = '${book_img}',
