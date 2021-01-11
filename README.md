@@ -3,7 +3,7 @@
 
 ### Đề tài: <b>Xây dựng website quản lý nhà sách Tiki</b>
 
-## Demo tại: 
+## Demo tại: https://youtu.be/C3HIAzzLX1M
 
 ## Cấu hình khuyến nghị
 - Visual Studio 2019 v16.8.2
