@@ -25,5 +25,10 @@ namespace Tiki.Controllers
                 Session["userinfo"] = record;
             return Redirect(Request.UrlReferrer.ToString());
         }
+        public ActionResult Logout()
+        {
+            Session["userinfo"] = null;
+            return Redirect("/");
+        }
     }
 }
