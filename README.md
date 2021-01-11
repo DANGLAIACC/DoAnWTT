@@ -11,6 +11,10 @@
 
 ## Cách chạy chương trình
 - Tải dự án từ git về
+  - Tạo mới 1 thư mục, cmd -> chạy các lệnh sau
+  - `git init`
+  - `git remote add origin https://github.com/DANGLAIACC/DoAnWTT`
+  - `git pull origin master`
 - Tạo cơ sở dữ liệu
 - Mở dự án bằng VS 2019 -> Restore Nuget Package
 - Mở Package Manager Console -> `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
